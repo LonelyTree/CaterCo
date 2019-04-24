@@ -7,11 +7,11 @@ const user = require('../Controllers/userCtrl')
 const main = require('../Controllers/mainCtrl')
 
 
-router.get('/editmenu/info', nav.infoGET)
+router.get('/info', nav.infoGET)
 
-router.get('/editmenu/orders', nav.ordersGET)
+router.get('/orders', nav.ordersGET)
 
-router.get('/editmenu', nav.menuGET)
+router.get('/', nav.menuGET)
 
 router.post('/')
 

@@ -7,20 +7,20 @@ const main = require('../Controllers/mainCtrl')
 
 
 // GET SERVICES
-router.get('/adminmenu/services', admin.serviceGET)
+router.get('/services', admin.serviceGET)
 
 // GET USERS
-router.get('/adminmenu/users', admin.usersGET)
+router.get('/users', admin.usersGET)
 
 // GET ADMIN MENU
-router.get('/adminmenu', admin.adminGET)
+router.get('/', admin.adminGET)
 
 
-router.delete('/adminmenu')
+router.delete('/')
 
-router.put('/adminmenu')
+router.put('/')
 
-router.post('/adminmenu')
+router.post('/')
 
 
 module.exports = router;
