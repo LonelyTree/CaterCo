@@ -7,15 +7,16 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-
-
-EDIT USERS HERE
-
-<%# UPDATE USERS %>
-<form action="/caterco/adminmenu_method=PUT" method="POST">
-<button type="submit">Update Users</button>
-</form>
-
+<%#List of users  %>
+<ul>
+<%for(let i =0;i<users.length;i++)%>
+<%if(users[i].admin){%><span>ADMIN  </span><%}%>
+<%=users[i].username%><br/>
+<a href=<%#EDIT PAGE%>>Edit</a>  <form action="/users/<%=users._id%>?_method=DELETE" method="post">
+                                 <input type="submit" value="Delete"/></form>
+</li>      
+<%}%>
+</ul>
 
 <%# LOGOUT %>
 <form action="/caterco" method="GET">
