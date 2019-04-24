@@ -19,4 +19,6 @@ router.put('/')
 
 router.delete('/')
 
+router.get('/logout',nav.logout)
+
 module.exports = router;
