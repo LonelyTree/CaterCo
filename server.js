@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
+const session = require("express-session");
 
 
 app.use(bodyParser.urlencoded({extended: false}));
