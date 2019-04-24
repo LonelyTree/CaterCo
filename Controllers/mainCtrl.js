@@ -25,5 +25,5 @@ const logout=(req,res)=>{
 module.exports = {
     arriveGET,
     loginGET,
-    logou
+    logout
 }
