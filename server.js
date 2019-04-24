@@ -4,18 +4,22 @@ const methodOverride = require("method-override");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const session = require("express-session");
-const userRouter = require("./Routes/userRoute");
+
 const mainRouter = require("./Routes/mainRoute");
-const adminRouter = require("./Routes/adminRoute");
+const adminRouter = require('./Routes/adminRoute')
+const navRouter = require('./Routes/navRoute')
+const userRouter = require('./Routes/userRoute')
 
 app.use(express.static('public'));
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 app.use(logger("dev"));
 
-app.use("/userRoute", userRouter);
-app.use("/mainRoute", mainRouter);
-app.use("/adminRoute", adminRouter);
+app.use("/caterco", mainRouter);
+app.use("/caterco/adminmenu", adminRouter);
+app.use("/caterco/editmenu", navRouter);
+app.use("/caterco/main", userRouter);
+
 
 
 

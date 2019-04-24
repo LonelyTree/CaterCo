@@ -1,13 +1,18 @@
 require('../db/db')
 const express = require("express")
 const router = express.Router()
-const mainCtrl = require('../Controllers/mainCtrl')
+const admin = require('../Controllers/adminCtrl')
+const user = require('../Controllers/userCtrl')
+const main = require('../Controllers/mainCtrl')
+require('./adminRoute')
+require('./navRoute')
+require('./userRoute')
 
 // GET ARRIVAL PAGE
-router.get("/", mainCtrl.arriveGET)
+router.get("/", main.arriveGET)
 
 // GET LOGIN PAGE
-router.get("/login", mainCtrl.loginGET)
+router.get("/login", main.loginGET)
 
 
 router.post('/')
