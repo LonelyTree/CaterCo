@@ -4,26 +4,25 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet">
     </head>
     <body>
+    <h1>This is the main page!</h1>
+
+    <p>This is the main page that comes after logging in. The user
+    can get to their account settings where they can edit their info and orders.</p>
 
 <%# LINK TO ACCOUNT SETTINGS %>
-<form action="/caterco/editmenu" method="GET">
-    <button type="submit">Your Account</button>
-</form>
-
+<a href="/caterco/editmenu">Your Account</a>
+    
 
 <%# LINK TO CONFIRM PAGE %>
-<form action="/caterco/main/confirm" method="GET">
-<button type="submit">Order</button>
-</form>
+<a href="/caterco/main/confirm">Order</a>
 
 
 <%# LOGOUT %>
-<form action="/caterco" method="GET">
-<button type="submit">Logout</button>
-</form>
+<a href="/caterco">Logout</a>
+
 
     </body>
 </html>
