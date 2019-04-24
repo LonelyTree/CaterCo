@@ -8,7 +8,6 @@
     </head>
     <body>
 
-
 <%# LINK TO ORDER SETTINGS %>
 <<form action="/caterco/editmenu/orders" method="GET">
     <button type="submit">Edit Orders</button>
@@ -18,6 +17,25 @@
 <%# LINK TO INFO SETTINGS %>
 <form action="/caterco/editmenu/info" method="GET">
 <button type="submit">Edit Info</button>
+</form>
+
+<%# RETURNS USER TO MAIN PAGE %>
+
+<%# IF USER IS ADMIN: %>
+<form action="/caterco/adminmenu" method="GET">
+    <button type="submit">Return to Main Page</button>
+</form>
+
+<%# IF USER IS NOT ADMIN: %>
+<form action="/caterco/main" method="GET">
+    <button type="submit">Return to Main Page</button>
+</form>
+
+
+
+<%# LOGOUT %>
+<form action="/caterco" method="GET">
+<button type="submit">Logout</button>
 </form>
     </body>
 </html>
