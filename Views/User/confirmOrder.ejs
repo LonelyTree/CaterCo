@@ -13,18 +13,18 @@
     Here the user can review the order they placed and confirm it. The user can also access their account settings from here.
     </p>
 
-
+<p> Will take you to account settings. The user can edit their info and edit orders they placed. </p>
 <%# LINK TO ACCOUNT SETTINGS %>
-<form action="/caterco/editmenu" method="GET">
-    <button type="submit">Your Account</button>
-</form>
+<a href="/caterco/edit">Your account</a>
+    
+<p> Will take you to the thank you page after submitting order. </p>
 
 <%# LINK TO THANKYOU PAGE %>
 <form action="/caterco/main/confirm/thankyou" method="GET">
 <button type="submit">Confirm</button>
 </form>
 
-
+<p> Logout will take you back to arrival page.</p>
 <%# LOGOUT %>
 <form action="/caterco" method="GET">
 <button type="submit">Logout</button>
