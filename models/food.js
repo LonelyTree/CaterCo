@@ -4,7 +4,7 @@ const foodSchema = mongoose.Schema({
   name:String,
   quantity:Number,
   description:String,
-  vegitarian:Boolean,
+  vegetarian:Boolean,
   category:String
 });
 
