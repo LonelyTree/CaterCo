@@ -10,8 +10,10 @@ router.get("/", mainCtrl.arriveGET)
 router.get("/login", mainCtrl.loginGET)
 
 
-router.post()
+router.post('/')
 
-router.put()
+router.put('/')
 
-router.delete()
+router.delete('/')
+
+module.exports = router;
