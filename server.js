@@ -8,7 +8,7 @@ const userRouter = require("./Routes/userRoute");
 const mainRouter = require("./Routes/mainRoute");
 const adminRouter = require("./Routes/adminRoute");
 
-
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride("_method"));
 app.use(logger("dev"));

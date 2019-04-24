@@ -1,51 +1,51 @@
 ## Arrival Page:
 
-/caterco/
+/caterco
 
 ## Login Page:
 
-/caterco/login/
+/caterco/login
 
 ### U S E R   R O U T E S ###
 
 ## Main Page:
 
-/caterco/main/
+/caterco/main
 
 ## Confirm Order:
 
-/caterco/main/confirm/
+/caterco/main/confirm
 
 ## Thank You:
 
-/caterco/main/confirm/thankyou/
+/caterco/main/confirm/thankyou
 
 
 ### NAVIGATION BAR ROUTES ###
 
 ## Edit Menu:
 
-/caterco/editmenu/
+/caterco/editmenu
 
 ## Edit Info:
 
-/caterco/editmenu/info/
+/caterco/editmenu/info
 
 ## Edit Orders:
 
-/caterco/editmenu/orders/
+/caterco/editmenu/orders
 
 
 ###  A D M I N   R O U T E S  ###
 
 ## Admin Menu:
 
-/caterco/adminmenu/
+/caterco/adminmenu
 
 ## Edit Services:
 
-/caterco/adminmenu/services/
+/caterco/adminmenu/services
 
 ## Edit Users:
 
-/caterco/adminmenu/users/
+/caterco/adminmenu/users
