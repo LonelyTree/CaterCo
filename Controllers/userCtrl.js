@@ -12,6 +12,7 @@ const thankyouGET = (req, res) => {
     res.render('../Views/User/thankYou.ejs')
 }
 
+
 module.exports = {
     mainGET,
     confirmGET,

@@ -12,8 +12,10 @@ const ordersGET = (req, res) => {
     res.render('../Views/Nav/editOrders.ejs')
 }
 
+
 module.exports = {
     menuGET,
     infoGET,
-    ordersGET
+    ordersGET,
+    
 }
