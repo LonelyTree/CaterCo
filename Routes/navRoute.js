@@ -2,15 +2,18 @@ require('../db/db')
 const express = require("express")
 const router = express.Router()
 const admin = require('../Controllers/adminCtrl')
+const nav = require('../Controllers/navCtrl')
 const user = require('../Controllers/userCtrl')
 const main = require('../Controllers/mainCtrl')
 
 
-router.get('/confirm/thankyou', user.thankyouGET)
+router.get('/info', nav.infoGET)
 
-router.get('/confirm', user.confirmGET)
+router.get('/orders', nav.ordersGET)
 
-router.get('/', user.mainGET)
+router.get('/', nav.menuGET)
+
+router.post('/')
 
 router.put('/')
 

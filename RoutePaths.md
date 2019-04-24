@@ -1,4 +1,5 @@
 ## Arrival Page:
+##    /caterco    ##
 
 /caterco
 
@@ -7,6 +8,7 @@
 /caterco/login
 
 ### U S E R   R O U T E S ###
+##    /main    ##
 
 ## Main Page:
 
@@ -22,6 +24,7 @@
 
 
 ### NAVIGATION BAR ROUTES ###
+##    /editmenu    ###
 
 ## Edit Menu:
 
@@ -37,6 +40,7 @@
 
 
 ###  A D M I N   R O U T E S  ###
+##    /adminmenu    ##
 
 ## Admin Menu:
 
