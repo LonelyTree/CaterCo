@@ -14,6 +14,7 @@ router.get("/", main.arriveGET)
 // GET LOGIN PAGE
 router.get("/login", main.loginGET)
 
+router.get('/logout',main.logout)
 
 router.post('/')
 
