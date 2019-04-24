@@ -1,13 +1,13 @@
 require("../db/db")
 
 // ARRIVAL PAGE
-const arriveGET = (req, res) => {
+const arrive = (req, res) => {
     res.render("../Views/arrivalPage.ejs")
 }
 
 
 // LOGIN PAGE
-const loginGET = (req, res) => {
+const login = (req, res) => {
     res.render("../Views/loginPage.ejs")
 }
 
@@ -23,7 +23,7 @@ const logout=(req,res)=>{
 
 
 module.exports = {
-    arriveGET,
-    loginGET,
+    arrive,
+    login,
     logout
 }

@@ -9,10 +9,10 @@ require('./navRoute')
 require('./userRoute')
 
 // GET ARRIVAL PAGE
-router.get("/", main.arriveGET)
+router.get("/", main.arrive)
 
 // GET LOGIN PAGE
-router.get("/login", main.loginGET)
+router.get("/login", main.login)
 
 router.get('/logout',main.logout)
 
