@@ -4,13 +4,16 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet">
     </head>
     <body>
+    <h1>Login</h1>
 
 <%# GOES TO MAIN PAGE %>
 <form action="/caterco/main" method="GET">
-<button type="submit">Login</button>
+    <input type="text" name="username" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <button type="submit">Login</button>
 </form>
     </body>
 </html>
