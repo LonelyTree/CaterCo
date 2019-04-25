@@ -1,19 +1,19 @@
 require('../db/db')
 
-const serviceGET = (req, res) => {
+const service = (req, res) => {
     res.render('../Views/Admin/editServices.ejs')
 }
 
-const usersGET = (req, res) => {
+const users = (req, res) => {
     res.render('../Views/Admin/editUsers.ejs')
 }
 
-const adminGET = (req, res) => {
+const admin = (req, res) => {
     res.render('../Views/Admin/adminMenu.ejs')
 }
 
 module.exports = {
-    serviceGET,
-    usersGET,
-    adminGET
+    service,
+    users,
+    admin
 }

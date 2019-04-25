@@ -6,11 +6,11 @@ const user = require('../Controllers/userCtrl')
 const main = require('../Controllers/mainCtrl')
 
 
-router.get('/confirm/thankyou', user.thankyouGET)
+router.get('/confirm/thankyou', user.thankyou)
 
-router.get('/confirm', user.confirmGET)
+router.get('/confirm', user.confirm)
 
-router.get('/', user.mainGET)
+router.get('/', user.main)
 
 router.put('/')
 

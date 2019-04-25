@@ -1,20 +1,20 @@
 require('../db/db')
 
-const mainGET = (req, res) => {
+const main = (req, res) => {
     res.render('../Views/User/mainPage.ejs')
 }
 
-const confirmGET = (req, res) => {
+const confirm = (req, res) => {
     res.render('../Views/User/confirmOrder.ejs')
 }
 
-const thankyouGET = (req, res) => {
+const thankyou = (req, res) => {
     res.render('../Views/User/thankYou.ejs')
 }
 
 
 module.exports = {
-    mainGET,
-    confirmGET,
-    thankyouGET
+    main,
+    confirm,
+    thankyou
 }

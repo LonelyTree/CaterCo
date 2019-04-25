@@ -24,8 +24,8 @@ app.use(session({
 }));
 
 app.use("/caterco", mainRouter);
-app.use("/caterco/adminmenu", adminRouter);
-app.use("/caterco/editmenu", navRouter);
+app.use("/caterco/admin", adminRouter);
+app.use("/caterco/edit", navRouter);
 app.use("/caterco/main", userRouter);
 
 
