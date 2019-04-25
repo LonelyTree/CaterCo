@@ -5,14 +5,14 @@ const bcrypt = require("bcryptjs");
 
 router.get('/login', (req, res) => {
     res.render('loginPage.ejs', {
-    message: req.session.message
+        message: req.session.message
     })
-  });
+});
 
-  router.post("/register", async (req, res) => {
+router.post("/register", async(req, res) => {
     const password = req.body.password;
     const passwordHash = bcrypt.hashSync(password,
-    bcrypt.genSaltSync(10));
+        bcrypt.genSaltSync(10));
 
     const userDbEntry = {};
     userDbEntry.username = req.body.username;
@@ -28,42 +28,43 @@ router.get('/login', (req, res) => {
 
         res.redirect("/caterco/main");
 
-    } catch(err){
+    } catch (err) {
         res.send(err);
     }
 
-  });
+});
 
-  router.post("/login", async (req, res) => {
+router.post("/login", async(req, res) => {
 
-      try {
-          const foundUser = await User.findOne({"username":
-        req.body.username});
+    try {
+        const foundUser = await User.findOne({
+            "username": req.body.username
+        });
 
-        if (foundUser){
+        if (foundUser) {
 
-            if(bcrypt.compareSync(req.body.password, 
-                foundUser.password) === true){
-                    req.session.logged = true;
-                    req.session.usersDbId = foundUser._id;
-                    console.log(req.session, " login successful");
-                    res.redirect("/caterco/main");
-                } else {
-                    req.session.message = "Username or password is incorrect";
-                    res.redirect("/auth/login");
-                }
+            if (bcrypt.compareSync(req.body.password,
+                    foundUser.password) === true) {
+                req.session.logged = true;
+                req.session.usersDbId = foundUser._id;
+                console.log(req.session, " login successful");
+                res.redirect("/caterco/main");
+            } else {
+                req.session.message = "Username or password is incorrect";
+                res.redirect("/caterco/login");
+            }
 
-                } else {
-                    req.session.message = "Username or password is incorrect";
-                    res.redirect("/auth/login");
-                }
-            
-            
-      } catch(err){
-          res.send(err);
-      }
+        } else {
+            req.session.message = "You don't exist!! Create an account to solve this existential conundrum!";
+            res.redirect("/caterco/login");
+        }
 
-  });
-  
 
-  module.exports = router;
+    } catch (err) {
+        res.send(err);
+    }
+
+});
+
+
+module.exports = router;
