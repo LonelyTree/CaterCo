@@ -13,6 +13,13 @@ const thankyou = (req, res) => {
     res.render('../Views/User/thankYou.ejs')
 }
 
+
+const neworder = (req,res)=>{
+    res.render('../Views/User/newOrder.ejs')
+}
+
+
+
 const newFood = async(req, res) => {
     try {
         const food = Food.findById(req.body._id)
@@ -25,8 +32,10 @@ const newFood = async(req, res) => {
     }
 }
 
+
 module.exports = {
     main,
     confirm,
-    thankyou
+    thankyou,
+    neworder
 }
