@@ -5,13 +5,17 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true },
     payment: { type: Number, required: true },
     email: { type: String, required: true },
-    orders:[{date:{type:String},
-             items:[{type: mongoose.Schema.Types.ObjectId,
-                     ref: 'Food'}]}]
-        
-        
+    orders: [{
+        date: { type: String },
+        items: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Food'
+        }]
+    }]
+
+
     ,
-    admin:Boolean
+    admin: Boolean
 });
 
 const User = mongoose.model("User", userSchema);
