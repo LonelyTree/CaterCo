@@ -2,8 +2,6 @@ require('../db/db')
 const express = require("express")
 const router = express.Router()
 const admin = require('../Controllers/adminCtrl')
-const user = require('../Controllers/userCtrl')
-const main = require('../Controllers/mainCtrl')
 
 
 // GET SERVICES
