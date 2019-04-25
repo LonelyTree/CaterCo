@@ -1,40 +1,47 @@
-const express = require('express');
-const router = express.Router();
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 
-router.get('/login', (req, res) => {
-    res.render('loginPage.ejs', {
-        message: req.session.message
-    })
-});
 
-router.post("/register", async(req, res) => {
-    const password = req.body.password;
-    const passwordHash = bcrypt.hashSync(password,
-        bcrypt.genSaltSync(10));
 
-    const userDbEntry = {};
-    userDbEntry.username = req.body.username;
-    userDbEntry.password = passwordHash;
-    userDbEntry.email = req.body.email;
-    userDbEntry.payment = req.body.payment;
+
+
+
+//CREATES NEW USER
+const createUser = async(req, res) => {
+
+    req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+    // req.body.payment = bcrypt.hashSync(req.body.payment, bcrypt.genSaltSync(10));
+    // req.body.email = bcrypt.hashSync(req.body.email, bcrypt.genSaltSync(10));
+    // const userDbEntry = {};
+    // userDbEntry.username = req.body.username;
+    // userDbEntry.password = passwordHash;
+    // userDbEntry.email = req.body.email;
+    // userDbEntry.payment = req.body.payment;
 
     try {
-        const createdUser = await User.create(userDbEntry);
+        const alive = await User.findOne({ username: req.body.username })
+        if (alive) {
+            req.session.message = "Sorry! Username already taken!"
+            res.redirect('/caterco/login')
+        } else {
+            const createdUser = await User.create(req.body);
 
-        req.session.logged = true;
-        req.session.usersDbId = createdUser._id;
+            req.session.logged = true;
+            req.session.usersDbId = createdUser._id;
+            res.redirect("/caterco/main");
+        }
 
-        res.redirect("/caterco/main");
 
     } catch (err) {
         res.send(err);
     }
 
-});
+};
 
-router.post("/login", async(req, res) => {
+
+
+// VALIDATES EXISTING USER CREDENTIALS
+const validate = async(req, res) => {
 
     try {
         const foundUser = await User.findOne({
@@ -44,10 +51,9 @@ router.post("/login", async(req, res) => {
         if (foundUser) {
 
             if (bcrypt.compareSync(req.body.password,
-                    foundUser.password) === true) {
+                    foundUser.password)) {
                 req.session.logged = true;
                 req.session.usersDbId = foundUser._id;
-                console.log(req.session, " login successful");
                 res.redirect("/caterco/main");
             } else {
                 req.session.message = "Username or password is incorrect";
@@ -64,7 +70,10 @@ router.post("/login", async(req, res) => {
         res.send(err);
     }
 
-});
+};
 
 
-module.exports = router;
+module.exports = {
+    validate,
+    createUser
+};
