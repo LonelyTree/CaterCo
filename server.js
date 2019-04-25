@@ -10,12 +10,13 @@ const adminRouter = require('./Routes/adminRoute')
 const navRouter = require('./Routes/navRoute')
 const userRouter = require('./Routes/userRoute')
 
-const authCtrl = require("./Controllers/authCtrl");
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 app.use(logger("dev"));
+
+
 
 app.use(session({
     secret: "This is a secret that only we know so do not tell anyone",
@@ -23,13 +24,11 @@ app.use(session({
     saveUninitialized: false
 }));
 
+
 app.use("/caterco", mainRouter);
 app.use("/caterco/admin", adminRouter);
 app.use("/caterco/edit", navRouter);
 app.use("/caterco/main", userRouter);
-
-
-
 
 
 

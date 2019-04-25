@@ -1,6 +1,6 @@
 require("../db/db")
-
-// ARRIVAL PAGE
+const Auth = require('../Controllers/authCtrl')
+    // ARRIVAL PAGE
 const arrive = (req, res) => {
     res.render("../Views/arrivalPage.ejs")
 }
@@ -8,14 +8,17 @@ const arrive = (req, res) => {
 
 // LOGIN PAGE
 const login = (req, res) => {
-    res.render("../Views/loginPage.ejs")
+    // req.session.message = 'hi'
+    res.render("../Views/loginPage.ejs", {
+        message: req.session.message
+    })
 }
 
-const logout=(req,res)=>{
-    req.session.destroy((err)=>{
-        if(err){
+const logout = (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
             res.send(err)
-        }else{
+        } else {
             res.redirect('/caterco')
         }
     })

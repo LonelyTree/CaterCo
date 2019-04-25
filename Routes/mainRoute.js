@@ -1,15 +1,25 @@
 require('../db/db')
 const express = require("express")
 const router = express.Router()
-const main = require('../Controllers/mainCtrl')
+const Main = require('../Controllers/mainCtrl')
+const Auth = require('../Controllers/authCtrl')
+
+
 
 // GET ARRIVAL PAGE
-router.get("/", main.arrive)
+router.get("/", Main.arrive)
 
 // GET LOGIN PAGE
-router.get("/login", main.login)
+router.get("/login", Main.login)
 
-router.get('/logout', main.logout)
+// LOGOUT USER
+router.get('/logout', Main.logout)
+
+// VALIDATE USER CREDENTIALS
+router.post("/login", Auth.validate)
+
+// CREATE USER
+router.post("/register", Auth.createUser)
 
 router.post('/')
 

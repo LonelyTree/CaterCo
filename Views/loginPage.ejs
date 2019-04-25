@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title></title>
+        <title>Login</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="/css/style.css" rel="stylesheet">
@@ -9,25 +10,33 @@
     <body>
     <h1>Login</h1>
 
-    <p>This is where the user or admin will login to 
+    <p>This is where the user or admin will login to
     there accounts. After hitting the login button, the user
     will be taken to the main page.</p>
 
 <%# GOES TO MAIN PAGE %>
 <div>
-<form action="/caterco/main" method="GET">
+
+<form action="/caterco/login" method="POST">
     <input type="text" name="username" placeholder="Username"><br/>
     <input type="password" name="password" placeholder="Password"><br/>
     <button type="submit">Login</button><br/>
 </form>
+
+<%# IGNORES THE SESSION MESSAGE IF NO MESSAGE EXIST %>
+<%if(false){%>
+<%return%>
+<%} else {%>
+<small><%= message %></small>
+<%}%>
+<%# IGNORES THE SESSION MESSAGE IF NO MESSAGE EXISTS %>
+
 </div>
 
 <div>
-
-
 <h1>Register</h1>
 <p> This is where the user can create a new account </p>
-<form action="/caterco/main" method="GET">
+<form action="/caterco/register" method="POST">
     Username: <input type="text" name="username"><br/>
     Password: <input type="password" name="password"><br/>
     Email: <input type="text" name="email"><br/>
