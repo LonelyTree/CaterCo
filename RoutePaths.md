@@ -28,15 +28,15 @@
 
 ## Edit Menu:
 
-/caterco/editmenu
+/caterco/edit
 
 ## Edit Info:
 
-/caterco/editmenu/info
+/caterco/edit/info
 
 ## Edit Orders:
 
-/caterco/editmenu/orders
+/caterco/edit/orders
 
 
 ###  A D M I N   R O U T E S  ###
@@ -44,12 +44,12 @@
 
 ## Admin Menu:
 
-/caterco/adminmenu
+/caterco/admin
 
 ## Edit Services:
 
-/caterco/adminmenu/services
+/caterco/admin/services
 
 ## Edit Users:
 
-/caterco/adminmenu/users
+/caterco/admin/users

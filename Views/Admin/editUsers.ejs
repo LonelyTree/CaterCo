@@ -9,14 +9,20 @@
     <body>
 <%#List of users  %>
 <ul>
+
+<!--MAKES A LIST OF USERS W/ LINK TO EDIT AND DELETE-->
 <%for(let i =0;i<users.length;i++)%>
 <%if(users[i].admin){%><span>ADMIN  </span><%}%>
 <%=users[i].username%><br/>
-<a href=<%#EDIT PAGE%>>Edit</a>  <form action="/users/<%=users._id%>?_method=DELETE" method="post">
-                                 <input type="submit" value="Delete"/></form>
-</li>      
+<a href=<%#EDIT PAGE%>>Edit</a>
+<form action="/users/<%=users._id%>?_method=DELETE" method="post">
+<input type="submit" value="Delete"/>
+</form>
+</li>
 <%}%>
 </ul>
+<!--MAKES A LIST OF USERS W/ LINK TO EDIT AND DELETE-->
+
 
 <%# LOGOUT %>
 <form action="/caterco" method="GET">
