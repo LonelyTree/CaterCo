@@ -20,14 +20,15 @@
     <input type="password" name="password" placeholder="Password"><br/>
     <button type="submit">Login</button><br/>
 </form>
+
+<small><%= message %></small>
+
 </div>
 
 <div>
-
-
 <h1>Register</h1>
 <p> This is where the user can create a new account </p>
-<form action="/caterco/main" method="GET">
+<form action="/caterco/main" method="POST">
     Username: <input type="text" name="username"><br/>
     Password: <input type="password" name="password"><br/>
     Email: <input type="text" name="email"><br/>
