@@ -24,15 +24,13 @@ app.use(session({
     saveUninitialized: false
 }));
 
-app.use("/auth", authCtrl);
-
 
 app.use("/caterco", mainRouter);
 app.use("/caterco/admin", adminRouter);
 app.use("/caterco/edit", navRouter);
 app.use("/caterco/main", userRouter);
 
-
+app.use("/auth", authCtrl);
 
 
 app.listen(3000, err => {

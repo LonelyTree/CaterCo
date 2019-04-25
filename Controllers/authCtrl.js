@@ -17,6 +17,8 @@ router.get('/login', (req, res) => {
     const userDbEntry = {};
     userDbEntry.username = req.body.username;
     userDbEntry.password = passwordHash;
+    userDbEntry.email = req.body.email;
+    userDbEntry.payment = req.body.payment;
 
     try {
         const createdUser = await User.create(userDbEntry);
@@ -55,7 +57,8 @@ router.get('/login', (req, res) => {
                     req.session.message = "Username or password is incorrect";
                     res.redirect("/auth/login");
                 }
-
+            
+            
       } catch(err){
           res.send(err);
       }
