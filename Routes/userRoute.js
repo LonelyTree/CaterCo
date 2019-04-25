@@ -11,6 +11,8 @@ router.get('/confirm', user.confirm)
 
 router.get('/', user.main)
 
+router.get('/neworder',user.neworder)
+
 router.put('/')
 
 router.delete('/')
