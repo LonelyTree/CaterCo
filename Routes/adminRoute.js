@@ -7,13 +7,13 @@ const main = require('../Controllers/mainCtrl')
 
 
 // GET SERVICES
-router.get('/services', admin.serviceGET)
+router.get('/services', admin.service)
 
 // GET USERS
-router.get('/users', admin.usersGET)
+router.get('/users', admin.users)
 
 // GET ADMIN MENU
-router.get('/', admin.adminGET)
+router.get('/', admin.admin)
 
 
 router.delete('/')

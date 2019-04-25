@@ -1,21 +1,21 @@
 require('../db/db')
 
-const menuGET = (req, res) => {
+const menu = (req, res) => {
     res.render('../Views/Nav/editMenu.ejs')
 }
 
-const infoGET = (req, res) => {
+const info = (req, res) => {
     res.render('../Views/Nav/editInfo.ejs')
 }
 
-const ordersGET = (req, res) => {
+const orders = (req, res) => {
     res.render('../Views/Nav/editOrders.ejs')
 }
 
 
 module.exports = {
-    menuGET,
-    infoGET,
-    ordersGET,
+    menu,
+    info,
+    orders,
     
 }
