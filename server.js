@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 app.use(logger("dev"));
 
-const authCtrl = require("./Controllers/authCtrl");
+
 
 app.use(session({
     secret: "This is a secret that only we know so do not tell anyone",
@@ -30,7 +30,6 @@ app.use("/caterco/admin", adminRouter);
 app.use("/caterco/edit", navRouter);
 app.use("/caterco/main", userRouter);
 
-app.use("/caterco", authCtrl);
 
 
 app.listen(3000, err => {
