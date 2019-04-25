@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs");
 
 router.get('/login', (req, res) => {
     res.render('loginPage.ejs', {
+    message: req.session.message
     })
   });
 
@@ -28,6 +29,38 @@ router.get('/login', (req, res) => {
     } catch(err){
         res.send(err);
     }
+
   });
+
+  router.post("/login", async (req, res) => {
+
+      try {
+          const foundUser = await User.findOne({"username":
+        req.body.username});
+
+        if (foundUser){
+
+            if(bcrypt.compareSync(req.body.password, 
+                foundUser.password) === true){
+                    req.session.logged = true;
+                    req.session.usersDbId = foundUser._id;
+                    console.log(req.session, " login successful");
+                    res.redirect("/caterco/main");
+                } else {
+                    req.session.message = "Username or password is incorrect";
+                    res.redirect("/auth/login");
+                }
+
+                } else {
+                    req.session.message = "Username or password is incorrect";
+                    res.redirect("/auth/login");
+                }
+
+      } catch(err){
+          res.send(err);
+      }
+
+  });
+  
 
   module.exports = router;
