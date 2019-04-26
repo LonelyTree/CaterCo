@@ -6,23 +6,30 @@
         <meta charset="UTF-8">
     </head>
     <body>
-    <div class="food options">
+    <div class="foodop">
+     <input type="date" data-date-inline-picker="true" />
     <%# FOOD OPTIONS GO HERE %>
     <%# Nested for loops, top one checks category array, second one checks 
     for match, then renders if it matches. category names are at 
     the top of the outer loop, dividers at bottom %>
-    <input type="date" data-date-inline-picker="true" />
-    <form action="/caterco/main/confirm" method="GET"><br/>
-        <button type="submit">Confirm Your Order</button>
-    </form><br/>
+    <%for(let x = 0;x<categories.length;x++){%>
+        <%=categories[x]%>
+        <%for(let y = 0;y<foods.length;y++){
+            if(foods[y].category==categories[x]{%>
+            <div class=foodrow>
+                <div class=foodimg><img src="<%=foods[y].img%>"></div>
+                <div class=foodcol>
+                
+                
+                </div>
+            </div>
 
-    <a href="/caterco/edit">Your Account</a><br/>
-    <a href="/caterco/main">Main Page</a><br/>
-    <form action="/caterco/logout" method="POST">
-        <button type="submit">Logout</button>
-    </form>
 
-
+            <%}%>
+        <%}%>
+        <hr>
+    <%}%>
+   
     
     </div>
     

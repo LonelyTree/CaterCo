@@ -20,12 +20,6 @@ const services = (req, res) => {
 
 // LOGIN PAGE
 const login = (req, res) => {
-<<<<<<< HEAD
-    // req.session.message = 'hi'
-    res.render("../Views/loginPage.ejs", {
-        message: req.session.message
-    })
-=======
     if (req.session.logged === true) {
         res.redirect("/caterco/main")
     } else {
@@ -34,7 +28,6 @@ const login = (req, res) => {
 
         })
     }
->>>>>>> master
 }
 
 const logout = (req, res) => {

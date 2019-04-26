@@ -12,10 +12,8 @@ const userSchema = new mongoose.Schema({
             ref: 'Food'
         }]
     }]
-
-
     ,
-    admin: Boolean
+    admin: {type:Boolean, default:false}
 });
 
 const User = mongoose.model("User", userSchema);
