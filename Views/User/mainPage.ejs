@@ -16,14 +16,20 @@
 where they can edit their info and orders they placed. </p>
 <%# LINK TO ACCOUNT SETTINGS %>
 <a href="/caterco/edit">Your Account</a>
-    
+
+This will take you to start a new food order.
+<%# LINK TO NEW ORDER PAGE %>
+<a href="/caterco/main/neworder">Order</a>
+
 <p> This will take you to the confirm order page. </p>
 <%# LINK TO CONFIRM PAGE %>
-<a href="/caterco/main/confirm">Order</a>
+<a href="/caterco/main/confirm">Confirm Your Order</a>
 
 <p> Will take you back to arrival page. </p>
 <%# LOGOUT %>
-<a href="/caterco">Logout</a>
+<form action="/caterco/logout" method="POST">
+<button type="submit">Logout</button>
+</form>
 
 
     </body>

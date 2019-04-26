@@ -13,7 +13,7 @@ router.get("/", Main.arrive)
 router.get("/login", Main.login)
 
 // LOGOUT USER
-router.get('/logout', Main.logout)
+router.post('/logout', Main.logout)
 
 // VALIDATE USER CREDENTIALS
 router.post("/login", Auth.validate)

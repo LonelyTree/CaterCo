@@ -52,6 +52,29 @@ Has links to:
 Confirm Page
 Edit Account Page
 Logout Page
+New Order Page
+
+
+CRUD applications:
+
+POST= none
+
+GET=    Confirm Page,
+        Edit Account Page
+        Logout Page
+        New Order Page
+
+PUT=
+DELETE=
+
+# New Order Page:
+
+Has links to:
+
+Confirm Page
+Edit Account Page
+Logout Page
+Main Page
 
 
 CRUD applications:
@@ -61,7 +84,8 @@ POST= New Food Schema
 GET=    Food Schema,
         Confirm Page,
         Edit Account Page,
-        Logout Page
+        Logout Page,
+        Main Page
 
 PUT=New Food Schema
 DELETE=New Food Schema
@@ -221,7 +245,7 @@ DELETE= food
 
 # Edit Users Page
 
-Has links to:
+Has links to: 
 
 Admin Menu Page
 Edit User Menu Page
@@ -240,3 +264,6 @@ GET=    user
 PUT= user
 
 DELETE= user
+
+
+Controllers: Not Done
