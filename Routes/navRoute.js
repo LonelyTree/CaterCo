@@ -1,14 +1,16 @@
 require('../db/db')
 const express = require("express")
 const router = express.Router()
-const nav = require('../Controllers/navCtrl')
+const Nav = require('../Controllers/navCtrl')
 
 
-router.get('/info', nav.info)
+router.get('/info', Nav.info)
 
-router.get('/orders', nav.orders)
+router.put('/', Nav.updateInfo)
 
-router.get('/', nav.menu)
+router.get('/orders', Nav.orders)
+
+router.get('/', Nav.menu)
 
 router.post('/')
 
