@@ -11,7 +11,7 @@ const service = (req, res) => {
 // GET
 const fillUsers = async(req, res) => {
     try {
-        const userList =await Users.find({})
+        const userList = await Users.find({})
         res.render('../Views/Admin/editUsers.ejs', {
             users: userList
         })
@@ -24,7 +24,7 @@ const fillUsers = async(req, res) => {
 // DELETE
 const removeUsers = async(req, res) => {
     try {
-        const userList =await Users.find({})
+        const userList = await Users.find({})
     } catch (err) {
         res.send(err)
     }
@@ -34,22 +34,22 @@ const removeUsers = async(req, res) => {
 const adminMenu = (req, res) => {
     res.render('../Views/Admin/adminMenu.ejs')
 }
-const createFood =async(req,res)=>{
-    res.render('../Views/Admin/newService.ejs',{
-        categories:Food.Categories
+const createFood = async(req, res) => {
+    res.render('../Views/Admin/newService.ejs', {
+        categories: Food.Categories
     })
 
 
 }
 const newFood = async(req, res) => {
     try {
-        if(req.body.vegetarian === 'on'){
+        if (req.body.vegetarian === 'on') {
             req.body.vegetarian = true;
-          } else {
+        } else {
             req.body.vegetarian = false
-          }
+        }
         await Food.create(req.body)
-        res.redirect('../Views/Admin/adminMenu.ejs')
+        res.redirect('/caterco/admin/services')
     } catch (err) {
         res.send(err)
     }

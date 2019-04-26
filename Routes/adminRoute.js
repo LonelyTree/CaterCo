@@ -12,8 +12,8 @@ const admin = require('../Controllers/adminCtrl')
 
 // GET ADMIN MENU
 //router.get('/', admin.admin);
-router.get('/newFood',admin.createFood)
-router.post('/newFood',admin.newFood);
+router.get('/newFood', admin.createFood)
+router.post('/newFood', admin.newFood);
 router.delete('/')
 
 router.put('/')

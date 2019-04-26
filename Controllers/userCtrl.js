@@ -28,7 +28,6 @@ const neworder = (req, res) => {
 // ADD FOOD TO ORDER
 const addToOrder = async(req, res) => {
     try {
-
         const user = await User.find(req.sessions.username)
         user.orders[user.orders.length + 1].date.push(req.body.date).items.push(food._id)
         res.redirect('/caterco/main/neworder')
@@ -64,5 +63,6 @@ module.exports = {
     main,
     confirm,
     thankyou,
-    neworder
+    neworder,
+    addToOrder
 }
