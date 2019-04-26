@@ -14,7 +14,9 @@ CRUD applications:
 
 POST= none
 
-GET=    Login Page
+GET=    Menu Page
+        Services Page
+        Login Page
         Logout Page
         Preview Page
 
@@ -271,7 +273,7 @@ Controllers: Not Done
 
 # Edit Users Page
 
-Has links to: 
+Has links to:
 
 Admin Menu Page
 Edit User Menu Page
