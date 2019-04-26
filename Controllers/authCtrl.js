@@ -19,10 +19,10 @@ const createUser = async(req, res) => {
         } else {
             if (req.body.admin === 'on') {
                 req.body.admin = true;
+                req.session.admin = true;
                 res.redirect("/caterco/admin")
             } else {
                 req.body.admin = false
-                req.session.message = "You are not authorized!"
             }
             const createdUser = await User.create(req.body);
 
