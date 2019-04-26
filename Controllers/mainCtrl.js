@@ -1,17 +1,29 @@
 require("../db/db")
 const Auth = require('../Controllers/authCtrl')
-    // ARRIVAL PAGE
+
+
+
+// ARRIVAL PAGE
 const arrive = (req, res) => {
     res.render("../Views/arrivalPage.ejs")
 }
 
+// MENU PAGE
+const menu = (req, res) => {
+    res.render("../Views/menu.ejs")
+}
+
+// SERVICES PAGE
+const services = (req, res) => {
+    res.render("../Views/preview.ejs")
+}
 
 // LOGIN PAGE
 const login = (req, res) => {
     // req.session.message = 'hi'
     res.render("../Views/loginPage.ejs", {
         message: req.session.message
-        
+
     })
 }
 
@@ -29,5 +41,7 @@ const logout = (req, res) => {
 module.exports = {
     arrive,
     login,
-    logout
+    logout,
+    services,
+    menu
 }
