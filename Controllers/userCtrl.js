@@ -22,8 +22,8 @@ const neworder = (req,res)=>{
 
 const newFood = async(req, res) => {
     try {
-        const food = Food.findById(req.body._id)
-        const user = User.find(req.sessions.username)
+        const food = await Food.findById(req.body._id)
+        const user = await User.find(req.sessions.username)
         user.orders[inputfromCalendar].items.push(food._id)
 
 
