@@ -28,6 +28,7 @@ const neworder = (req, res) => {
 // ADD FOOD TO ORDER
 const addToOrder = async(req, res) => {
     try {
+
         const user = await User.find(req.sessions.username)
         user.orders[user.orders.length + 1].date.push(req.body.date).items.push(food._id)
         res.redirect('/caterco/main/neworder')
@@ -41,6 +42,7 @@ const addToOrder = async(req, res) => {
 const updateFood = async(req, res) => {
     try {
         for (let i = 0; i < Food.Food.orders.length; i++) {
+            if()
             const Order = await Food.Food.orders
         }
         const food = await Food.Food.findByIdAndUpdate(req.params.id, req.body)
@@ -63,6 +65,5 @@ module.exports = {
     main,
     confirm,
     thankyou,
-    neworder,
-    addToOrder
+    neworder
 }
