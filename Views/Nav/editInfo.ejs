@@ -7,10 +7,18 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-    INFO FOR USER HERE
 
-    <%# UPDATE USER INFO %>
-    <form action="/caterco/editmenu_method=PUT" method="POST">
+        <%# UPDATE USER INFO %>
+    <form action="/caterco/edit?_method=PUT" method="POST">
+
+    Username: <input type="text" name="username" value="<%=user.username%>">
+
+    Password: <input type="password" name="password">
+
+    Payment: <input type="text" name="payment" value="<%=user.payment%>">
+
+    Email: <input type="text" name="email" value="<%=user.email%>">
+
     <button type="submit">Update Info</button>
     </form>
 
