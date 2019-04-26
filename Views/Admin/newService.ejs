@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <header>
+       <% include ../partials/header %>
+    </header>
+
+<%# ADD/EDIT SERVICES HERE %>
+<form action="/articles" method="post">
+        
+
+        </select><br/>
+        Name<br/>
+        <input type="text" name="name" /><br/><br/>
+        Description<br/>
+         <textarea name="description"></textarea><br/><br/>
+         Vegitarian<br/>
+         <input type="checkbox" name="vegetarian"><br/><br/>
+         Category: 
+        <select name="category">
+          <% for (let i = 0; i < categories.length; i++) { %>
+            <option value="<%=categories[i]%>"><%=categories[i]%></option>
+          <%}%>
+        <input type="submit" value="New Food"/>
+      </form>
+
+
+
+
+
+<%# LOGOUT %>
+<form action="/caterco" method="GET">
+<button type="submit">Logout</button>
+</form>
+
+
+    </body>
+</html>

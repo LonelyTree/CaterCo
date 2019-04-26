@@ -1,12 +1,34 @@
 require('../db/db')
 const Food = require("../models/food")
+const Users = require("../models/user")
 
 const service = (req, res) => {
     res.render('../Views/Admin/editServices.ejs')
 }
 
-const users = (req, res) => {
-    res.render('../Views/Admin/editUsers.ejs')
+// EDIT USER PAGE
+
+// GET
+const fillUsers = async(req, res) => {
+    try {
+        const userList = Users.find({})
+        res.render('../Views/Admin/editUsers.ejs', {
+            users: userList
+        })
+    } catch (err) {
+        res.send(err)
+    }
+
+}
+
+// DELETE
+const removeUsers = async(req, res) => {
+    try {
+        const userList = Users.find({})
+    } catch (err) {
+        res.send(err)
+    }
+
 }
 
 const admin = (req, res) => {
@@ -24,6 +46,7 @@ const newFood = async(req, res) => {
 
 module.exports = {
     service,
-    users,
-    admin
+    fillUsers,
+    admin,
+    removeUsers
 }

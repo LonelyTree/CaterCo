@@ -1,6 +1,8 @@
 require('../db/db')
 const Food = require('../models/food')
 const User = require('../models/user')
+Food
+
 const main = (req, res) => {
     res.render('../Views/User/mainPage.ejs')
 }

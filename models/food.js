@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const foodSchema = mongoose.Schema({
-  name:String,
+  name:{type:String, require:true},
   quantity:Number,
   description:String,
   vegetarian:Boolean,
@@ -9,5 +9,5 @@ const foodSchema = mongoose.Schema({
 });
 
 const Food = mongoose.model('Food', foodSchema);
-
-module.exports = Food;
+const Categories =["Salads","Appetizers","Sandwiches","Big Entrees","Drinks"];
+module.exports = {Food, Categories};
