@@ -26,11 +26,6 @@ const login = (req, res) => {
         res.render("../Views/loginPage.ejs", {
             message: req.session.message
         })
-        if (req.body.username === req.body.admin){
-            res.redirect("/caterco/admin")
-        } else {
-            res.redirect("caterco/login")
-        }
     }
 }
 
