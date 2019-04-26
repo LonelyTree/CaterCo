@@ -21,7 +21,7 @@ GET=    Login Page
 PUT= none
 DELETE= none
 
-
+Controllers: Done
 
 # Login Page
 
@@ -41,6 +41,7 @@ GET=    Main Page
 PUT= none
 DELETE= none
 
+Controllers: Not Done
 
 ### USER ###
 
@@ -67,6 +68,9 @@ GET=    Confirm Page,
 PUT=
 DELETE=
 
+
+Controllers: Not Done
+
 # New Order Page:
 
 Has links to:
@@ -90,6 +94,9 @@ GET=    Food Schema,
 PUT=New Food Schema
 DELETE=New Food Schema
 
+
+Controllers: Not Done
+
 # Confirm Page
 
 Has links to:
@@ -111,6 +118,8 @@ GET=    user.Orders
 PUT=    user.Orders
 DELETE= user.Orders
 
+Controllers: Not Done
+
 # Thank You Page
 
 Has links to:
@@ -130,6 +139,9 @@ GET=    Main Menu Page
 
 PUT= none
 DELETE= none
+
+Controllers: Not Done
+
 
 ### NAV ###
 
@@ -153,6 +165,8 @@ GET=    Edit Info Page
 
 PUT= none
 DELETE= none
+
+Controllers: Not Done
 
 # Edit Info Page
 
@@ -179,6 +193,9 @@ PUT=    user.username
 
 DELETE= user
 
+
+Controllers: Not Done
+
 # Edit Orders Page
 
 
@@ -200,6 +217,9 @@ GET=    user.orders
 
 PUT= user.orders
 DELETE= user.orders
+
+
+Controllers: Not Done
 
 ### ADMIN ###
 
@@ -224,6 +244,9 @@ GET=    Edit Services Page
 PUT= none
 DELETE= none
 
+
+Controllers: Not Done
+
 # Edit Services Page
 
 Has links to:
@@ -242,6 +265,9 @@ GET=    food
 
 PUT= food
 DELETE= food
+
+
+Controllers: Not Done
 
 # Edit Users Page
 
