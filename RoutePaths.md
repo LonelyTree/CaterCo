@@ -3,6 +3,15 @@
 
 /caterco
 
+## Menu Page
+
+/caterco/menu
+
+
+## Services Page
+
+/caterco/services
+
 ## Login Page:
 
 /caterco/login
