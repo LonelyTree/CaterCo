@@ -11,7 +11,6 @@ const login = (req, res) => {
     // req.session.message = 'hi'
     res.render("../Views/loginPage.ejs", {
         message: req.session.message
-        
     })
 }
 
