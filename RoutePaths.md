@@ -14,6 +14,10 @@
 
 /caterco/main
 
+## New Order Page:
+
+/caterco/main/neworder
+
 ## Confirm Order:
 
 /caterco/main/confirm
