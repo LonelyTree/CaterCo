@@ -9,6 +9,12 @@ const Auth = require('../Controllers/authCtrl')
 // GET ARRIVAL PAGE
 router.get("/", Main.arrive)
 
+// GET MENU PAGE
+router.get('/menu', Main.menu)
+
+// GET SERVICES PAGE
+router.get('/services', Main.services)
+
 // GET LOGIN PAGE
 router.get("/login", Main.login)
 

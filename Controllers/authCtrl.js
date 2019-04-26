@@ -1,6 +1,7 @@
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
-
+const Cryptr = require('cryptr')
+const cryptr = new Cryptr('myTotallySecretKey')
 
 
 
@@ -10,13 +11,6 @@ const bcrypt = require("bcryptjs");
 const createUser = async(req, res) => {
 
     req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
-    // req.body.payment = bcrypt.hashSync(req.body.payment, bcrypt.genSaltSync(10));
-    // req.body.email = bcrypt.hashSync(req.body.email, bcrypt.genSaltSync(10));
-    // const userDbEntry = {};
-    // userDbEntry.username = req.body.username;
-    // userDbEntry.password = passwordHash;
-    // userDbEntry.email = req.body.email;
-    // userDbEntry.payment = req.body.payment;
 
     try {
         const alive = await User.findOne({ username: req.body.username })
@@ -24,6 +18,17 @@ const createUser = async(req, res) => {
             req.session.message = "Sorry! Username already taken!"
             res.redirect('/caterco/login')
         } else {
+            if (req.body.admin === 'on') {
+                req.body.admin = true;
+                req.session.admin = true;
+                res.redirect("/caterco/admin")
+            } else {
+                req.body.admin = false
+            }
+            // ENCRYPT CODE
+            // UNCOMMENT WHEN SITE IS FUNCTIONAL
+            // req.body.email = cryptr.encrypt(req.body.email)
+            // req.body.payment = cryptr.encrypt(req.body.payment)
             const createdUser = await User.create(req.body);
 
             req.session.logged = true;
@@ -50,20 +55,33 @@ const validate = async(req, res) => {
 
         if (foundUser) {
 
-            if (bcrypt.compareSync(req.body.password,
-                    foundUser.password)) {
+            if (foundUser.admin === true) {
+                bcrypt.compareSync(req.body.password,
+                    foundUser.password)
                 req.session.logged = true;
                 req.session.usersDbId = foundUser._id;
-                res.redirect("/caterco/main");
+                res.redirect("/caterco/admin")
             } else {
-                req.session.message = "Username or password is incorrect";
-                res.redirect("/caterco/login");
+
+                if (bcrypt.compareSync(req.body.password,
+                        foundUser.password)) {
+                    req.session.logged = true;
+                    foundUser.admin = false;
+                    req.session.usersDbId = foundUser._id;
+                    res.redirect("/caterco/main");
+
+
+                } else {
+                    req.session.message = "Username or password is incorrect";
+                    res.redirect("/caterco/login");
+                }
             }
 
         } else {
             req.session.message = "You don't exist!! Create an account to solve this existential conundrum!";
             res.redirect("/caterco/login");
         }
+
 
 
     } catch (err) {
