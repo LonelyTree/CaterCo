@@ -18,7 +18,7 @@ router.get('/neworder', user.neworder)
 // NEW ORDER PAGE
 
 // ADD FOOD TO ORDER
-router.post('/neworder', user.addToOrder)
+// router.post('/neworder', user.addToOrder)
 
 // UPDATE FOOD TO ORDER
 router.put('/')
