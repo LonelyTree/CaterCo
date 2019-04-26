@@ -18,13 +18,13 @@ router.get('/neworder', user.neworder)
 // NEW ORDER PAGE
 
 // ADD FOOD TO ORDER
-router.post('/neworder', user.neworder)
+router.post('/neworder', user.addToOrder)
 
 // UPDATE FOOD TO ORDER
-router.put()
+router.put('/')
 
 // DELETE FOOD TO ORDER
-router.delete()
+router.delete('/')
 
 
 
