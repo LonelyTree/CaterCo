@@ -11,7 +11,7 @@ const service = (req, res) => {
 // GET
 const fillUsers = async(req, res) => {
     try {
-        const userList = Users.find({})
+        const userList =await Users.find({})
         res.render('../Views/Admin/editUsers.ejs', {
             users: userList
         })
@@ -24,21 +24,32 @@ const fillUsers = async(req, res) => {
 // DELETE
 const removeUsers = async(req, res) => {
     try {
-        const userList = Users.find({})
+        const userList =await Users.find({})
     } catch (err) {
         res.send(err)
     }
 
 }
 
-const admin = (req, res) => {
+const adminMenu = (req, res) => {
     res.render('../Views/Admin/adminMenu.ejs')
 }
+const createFood =async(req,res)=>{
+    res.render('../Views/Admin/newService.ejs',{
+        categories:Food.Categories
+    })
 
+
+}
 const newFood = async(req, res) => {
     try {
-        Food.create(req.body)
-        res.redirect('../Views/Admin/editServices.ejs')
+        if(req.body.vegetarian === 'on'){
+            req.body.vegetarian = true;
+          } else {
+            req.body.vegetarian = false
+          }
+        await Food.create(req.body)
+        res.redirect('../Views/Admin/adminMenu.ejs')
     } catch (err) {
         res.send(err)
     }
@@ -47,6 +58,8 @@ const newFood = async(req, res) => {
 module.exports = {
     service,
     fillUsers,
-    admin,
-    removeUsers
+    adminMenu,
+    removeUsers,
+    newFood,
+    createFood
 }
