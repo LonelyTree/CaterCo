@@ -12,14 +12,14 @@
     </header>
 
 <%# ADD FOOD HERE %>
-<form action="/caterco/admin/newFood" method="post">
+<form action="/caterco/admin/newservice" method="post">
         
 
         </select><br/>
         Name (required)<br/>
-        <input type="text" name="name" /><br/><br/>
+        <input type="text" name="name"><br/><br/>
         IMG (required)<br/>
-        <input type="text" name="img" /><br/><br/>
+        <input type="text" name="img"><br/><br/>
         Description<br/>
          <textarea name="description"></textarea><br/><br/>
          Vegitarian<br/>
@@ -29,7 +29,7 @@
           <% for (let i = 0; i < categories.length; i++) { %>
             <option value="<%=categories[i]%>"><%=categories[i]%></option>
           <%}%>
-        <input type="submit" value="New Food"/>
+        <input type="submit" value="New Food">
       </form>
 
 
@@ -37,7 +37,7 @@
 
 
 <%# LOGOUT %>
-<form action="/caterco" method="GET">
+<form action="/caterco/logout" method="GET">
 <button type="submit">Logout</button>
 </form>
 
