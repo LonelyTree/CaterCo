@@ -20,7 +20,7 @@ const services = (req, res) => {
 
 // LOGIN PAGE
 const login = (req, res) => {
-        
+
     if (req.session.logged === true) {
         res.redirect("/caterco/main")
     } else {

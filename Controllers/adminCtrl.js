@@ -2,7 +2,7 @@ require('../db/db')
 const Food = require("../models/food")
 const Users = require("../models/user")
 
-const service = (req, res) => {
+const editservice = (req, res) => {
     res.render('../Views/Admin/editServices.ejs')
 }
 
@@ -41,21 +41,14 @@ const adminMenu = (req, res) => {
 
 // GET SERVICES PAGE
 
-// GET FOOD
-const createFood = async(req, res) => {
+// GET NEW SERVICES PAGE
+const newFoodPage = async(req, res) => {
     res.render('../Views/Admin/newService.ejs', {
         categories: Food.Categories
     })
-
-
 }
 
-// GET NEW FOOD PAGE
-const newFoodPage = (req, res) => {
-    res.render("../Views/Admin/newService.ejs")
-}
-
-// MAKE NEW FOOD
+// MAKE NEW SERVICE
 const newFood = async(req, res) => {
     try {
         if (req.body.vegetarian === 'on') {
@@ -63,7 +56,7 @@ const newFood = async(req, res) => {
         } else {
             req.body.vegetarian = false
         }
-        await Food.create(req.body)
+        const food = await Food.Food.create(req.body)
         res.redirect('/caterco/admin/services')
     } catch (err) {
         res.send(err)
@@ -71,11 +64,10 @@ const newFood = async(req, res) => {
 }
 
 module.exports = {
-    service,
+    editservice,
     fillUsers,
     adminMenu,
     removeUsers,
-    newFood,
-    createFood,
-    newFoodPage
+    newFoodPage,
+    newFood
 }

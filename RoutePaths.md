@@ -63,6 +63,10 @@
 
 /caterco/admin/services
 
+## New Service
+
+/caterco/admin/newservice
+
 ## Edit Users:
 
 /caterco/admin/users
