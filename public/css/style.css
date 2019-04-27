@@ -2,3 +2,17 @@
     width: 400px;
     display: flex;
 }
+
+#login{
+    text-align: center;
+    font-family: "Lemon", cursive;
+}
+
+#main{
+    text-align: center;
+
+}
+
+#enter{
+    
+}
