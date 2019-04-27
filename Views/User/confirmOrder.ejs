@@ -8,23 +8,19 @@
     </head>
     <body>
     <h1>Confirm Your Order!</h1>
-    
-    <p>This page comes after you place your order.
-    Here the user can review the order they placed and confirm it. The user can also access their account settings from here.
-    </p>
 
-<p> Will take you to account settings. The user can edit their info and edit orders they placed. </p>
+<%for(let i=0; i<orders.length;i++){%>
+<li><%=orders[i].dates%></li>
+<%}%>
+
 <%# LINK TO ACCOUNT SETTINGS %>
 <a href="/caterco/edit">Your account</a>
-    
-<p> Will take you to the thank you page after submitting order. </p>
 
 <%# LINK TO THANKYOU PAGE %>
 <form action="/caterco/main/confirm/thankyou" method="GET">
 <button type="submit">Confirm</button>
 </form>
 
-<p> Logout will take you back to arrival page.</p>
 <%# LOGOUT %>
 <form action="/caterco/logout" method="POST">
 <button type="submit">Logout</button>

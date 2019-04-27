@@ -3,15 +3,15 @@ const Food = require('../models/food')
 const User = require('../models/user')
 
 
-let orderShell=[];
+let orderShell = [];
 
 
-const orderShellWipe=()=>{
-    orderShell=[];
-    for(let x = 0;x<Food.Categories.length;x++){
-        for(let y = 0;y<Food.Food.length;y++){
-            if(Food.Food[y].category==Food.Categories[x]){
-                orderShell.push({name:Food.Food._id,qty:0})
+const orderShellWipe = () => {
+    orderShell = [];
+    for (let x = 0; x < Food.Categories.length; x++) {
+        for (let y = 0; y < Food.Food.length; y++) {
+            if (Food.Food[y].category == Food.Categories[x]) {
+                orderShell.push({ name: Food.Food._id, qty: 0 })
             }
         }
     }
@@ -22,8 +22,15 @@ const main = (req, res) => {
     res.render('../Views/User/mainPage.ejs')
 }
 
-const confirm = (req, res) => {
-    res.render('../Views/User/confirmOrder.ejs')
+const confirm = async(req, res) => {
+    try {
+        const user = await User.findById(req.session.usersDbId)
+        res.render('../Views/User/confirmOrder.ejs', {
+            orders: user.orders
+        })
+    } catch (err) {
+        res.send(err)
+    }
 }
 
 const thankyou = (req, res) => {
@@ -31,15 +38,15 @@ const thankyou = (req, res) => {
 }
 
 
-const neworder =async (req, res) => {
-    let passfood =await Food.Food.find({})
-    res.render('../Views/User/newOrder.ejs',{
-        categories:Food.Categories,
-        foods:passfood,
+const neworder = async(req, res) => {
+    let passfood = await Food.Food.find({})
+    res.render('../Views/User/newOrder.ejs', {
+        categories: Food.Categories,
+        foods: passfood,
     })
 }
 
-const createorder=(req,res)=>{
+const createorder = (req, res) => {
     console.log(req.body)
 }
 
@@ -68,9 +75,9 @@ const updateFood = async(req, res) => {
 
 
             const Order = await Food.Food.orders
-        
-        const food = await Food.Food.findByIdAndUpdate(req.params.id, req.body)
-    }
+
+            const food = await Food.Food.findByIdAndUpdate(req.params.id, req.body)
+        }
     } catch (err) {
 
     }

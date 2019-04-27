@@ -11,20 +11,21 @@ router.get('/confirm', user.confirm)
 
 router.get('/', user.main)
 
-router.get('/neworder', user.neworder)
-
-
-
 // NEW ORDER PAGE
 
-// ADD FOOD TO ORDER
-// router.post('/neworder', user.addToOrder)
+router.get('/neworder', user.neworder)
+
+router.post('/neworder', user.createorder)
 
 // UPDATE FOOD TO ORDER
 router.put('/')
 
 // DELETE FOOD TO ORDER
 router.delete('/')
+
+
+
+
 
 
 
