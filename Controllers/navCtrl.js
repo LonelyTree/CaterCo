@@ -34,7 +34,7 @@ const info = async(req, res) => {
 const updateInfo = async(req, res) => {
     try {
         if (req.body.password === undefined) {
-            user = User.findById(req.session.usersDbId)
+           user = await User.findById(req.session.usersDbId)
             req.body.password = user.password
             req.body.email = Auth.cryptr.encrypt(req.body.email)
             req.body.payment = Auth.cryptr.encrypt(req.body.payment)
