@@ -46,7 +46,6 @@ const neworder = async(req, res) => {
     })
 }
 
-<<<<<<< HEAD
 const createorder = async(req, res) => {
     //console.log(req.body)
     //create a temp new order object
@@ -86,10 +85,6 @@ const createorder = async(req, res) => {
     res.redirect('/caterco/main')
     }catch(err){
         res.send(err)}
-=======
-const createorder = (req, res) => {
-    console.log(req.body)
->>>>>>> 90c1636f578df23d058bdd11963dde5bc05071fe
 }
 
 
