@@ -6,7 +6,7 @@ const foodSchema = mongoose.Schema({
   quantity:Number,
   description:String,
   vegetarian:Boolean,
-  category:String
+  category:{type:String,require:true}
 });
 
 const Food = mongoose.model('Food', foodSchema);
