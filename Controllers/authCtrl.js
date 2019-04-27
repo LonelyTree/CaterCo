@@ -1,7 +1,7 @@
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const Cryptr = require('cryptr')
-const cryptr = new Cryptr('myTotallySecretKey')
+const cryptr = new Cryptr(`Shhhhh, don't tell!`)
 
 
 
@@ -27,8 +27,8 @@ const createUser = async(req, res) => {
             }
             // ENCRYPT CODE
             // UNCOMMENT WHEN SITE IS FUNCTIONAL
-            // req.body.email = cryptr.encrypt(req.body.email)
-            // req.body.payment = cryptr.encrypt(req.body.payment)
+            req.body.email = cryptr.encrypt(req.body.email)
+            req.body.payment = cryptr.encrypt(req.body.payment)
             const createdUser = await User.create(req.body);
 
             req.session.logged = true;
@@ -93,5 +93,6 @@ const validate = async(req, res) => {
 
 module.exports = {
     validate,
-    createUser
+    createUser,
+    cryptr
 };

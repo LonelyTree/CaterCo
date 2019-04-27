@@ -1,24 +1,28 @@
 require('../db/db')
 const express = require("express")
 const router = express.Router()
-const admin = require('../Controllers/adminCtrl')
+const Admin = require('../Controllers/adminCtrl')
 
 
-// // GET SERVICES
-// router.get('/services', admin.service)
 
-// // GET USERS
-// router.get('/users', admin.users)
+// ADMIN MENU
 
-// // GET ADMIN MENU
-// router.get('/', admin.admin);
-router.get('/newFood', admin.createFood)
-router.post('/newFood', admin.newFood);
-router.delete('/')
+// GET NEW SERVICE
+router.get('/newservice', Admin.newFoodPage)
 
-router.put('/')
+// GET SERVICES
+router.get('/services', Admin.service)
 
-router.post('/')
+// GET USERS
+router.get('/users', Admin.fillUsers)
+
+// GET ADMIN MENU
+router.get('/', Admin.adminMenu);
+
+// NEW FOOD PAGE
+router.get('/newFood', Admin.createFood)
+router.post('/newFood', Admin.newFood);
+
 
 
 module.exports = router;
