@@ -5,27 +5,22 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="/css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
-<h1>C A T E R  C O</h1>
+<h1 id="main">C A T E R  C O</h1>
 
-    <p>This is the first page that comes up when you go to the website.
-    There are links that will take you to look at the menu items, the services
-    and contact to ask the catering service any questions.</p>
+
     <ul>
-        <li>
-            <a href="/caterco/menu">Food</a><br/>
-        </li>
         <li>
             <a href="/caterco/services">Services</a>
         </li>
     </ul>
 
-<p> This button will take the user to the login page where they
-can login or create an account. </p>
+
 <%# ENTER SITE %>
 <form action="/caterco/login" method="GET">
-<button type="submit">Enter</button>
+<button type="submit" class="btn btn-light" id="enter">Enter</button>
 </form>
     </body>
 </html>

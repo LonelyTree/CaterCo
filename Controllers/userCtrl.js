@@ -22,8 +22,15 @@ const main = (req, res) => {
     res.render('../Views/User/mainPage.ejs')
 }
 
-const confirm = (req, res) => {
-    res.render('../Views/User/confirmOrder.ejs')
+const confirm = async(req, res) => {
+    try {
+        const user = await User.findById(req.session.usersDbId)
+        res.render('../Views/User/confirmOrder.ejs', {
+            orders: user.orders
+        })
+    } catch (err) {
+        res.send(err)
+    }
 }
 
 const thankyou = (req, res) => {
@@ -39,6 +46,7 @@ const neworder = async(req, res) => {
     })
 }
 
+<<<<<<< HEAD
 const createorder = async(req, res) => {
     //console.log(req.body)
     //create a temp new order object
@@ -78,6 +86,10 @@ const createorder = async(req, res) => {
     res.redirect('/caterco/main')
     }catch(err){
         res.send(err)}
+=======
+const createorder = (req, res) => {
+    console.log(req.body)
+>>>>>>> 90c1636f578df23d058bdd11963dde5bc05071fe
 }
 
 
