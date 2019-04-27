@@ -47,7 +47,7 @@ const neworder = async(req, res) => {
 }
 
 const createorder = (req, res) => {
-    console.log(req.body)
+
 }
 
 
