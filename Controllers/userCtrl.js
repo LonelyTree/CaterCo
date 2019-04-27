@@ -3,7 +3,6 @@ const Food = require('../models/food')
 const User = require('../models/user')
 const mongoose = require("mongoose");
 
-
 // MAIN PAGE
 const main = (req, res) => {
     res.render('../Views/User/mainPage.ejs')
