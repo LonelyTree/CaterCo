@@ -16,17 +16,17 @@
     <%for(let x = 0;x<categories.length;x++){%>
         <%=categories[x]%>
         <%for(let y = 0;y<foods.length;y++){
-            if(foods[y].category==categories[x]){%>
-            <div class=foodrow>
+            if(foods[y].category===categories[x]){%>
+            <div class="foodrow">
                 <div class="foodimg foodcol"><img src="<%=foods[y].img%>"></div>
-                <div class=foodcol>
+                <div class="foodcol">
                 <%=foods[y].name%>
                 <%if(foods[y].vegetarian){%>
-                    <span class=veggie>VEGETARIAN!</span>
+                    <span class="veggie">VEGETARIAN!</span>
                     <%}%><br/>
                 <%=foods[y].description%><br/>
                 <input type="hidden" name="id" value="<%=foods[y].id %>"/>
-                <input type="number"  name="quantity" id="quantity" value=0>
+                <input type="number"  name="quantity" id="quantity" value="0">
                 </div>
             </div>
 

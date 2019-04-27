@@ -8,15 +8,35 @@
     </head>
     <body>
 
+    <%for(let x = 0;x<categories.length;x++){%>
+        <%=categories[x]%>
+        <%for(let y = 0;y<foods.length;y++){
+            if(foods[y].category===categories[x]){%>
+            <div class="foodrow">
+                <div class="foodimg foodcol"><img src="<%=foods[y].img%>"></div>
+                <div class="foodcol">
+                <%=foods[y].name%>
+                <%if(foods[y].vegetarian){%>
+                    <span class="veggie">VEGETARIAN!</span>
+                    <%}%><br/>
+                <%=foods[y].description%><br/>
+
+                            <form action="/caterco/admin/deleteservice/<%=foods[y]._id%>?_method=delete" method="POST">
+                            <button type="submit">Delete Service</button>
+                            </form>
+                            <form action="/caterco/admin/updateservice/<%=foods[y]._id%>" method="GET">
+                            <button type="submit">Update Service</button>
+                            </form>
+                </div>
+            </div>
 
 
+            <%}%>
+        <%}%>
+        <hr>
+    <%}%>
 
 
-
-<%# UPDATE SERVICES %>
-<form action="/caterco/adminmenu_method=PUT" method="POST">
-<button type="submit">Update Services</button>
-</form>
 
 <%# ADD NEW SERVICE %>
 <form action="/caterco/admin/newservice" method="GET">

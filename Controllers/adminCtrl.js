@@ -2,8 +2,17 @@ require('../db/db')
 const Food = require("../models/food")
 const Users = require("../models/user")
 
-const editservice = (req, res) => {
-    res.render('../Views/Admin/editServices.ejs')
+const editservice = async(req, res) => {
+    try {
+        const passfood = await Food.Food.find({})
+        res.render('../Views/Admin/editServices.ejs', {
+            foods: passfood,
+            categories: Food.Categories
+        })
+    } catch (err) {
+        res.send(err)
+    }
+
 }
 
 // EDIT USER PAGE
