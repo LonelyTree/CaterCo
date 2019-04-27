@@ -7,11 +7,14 @@ const Admin = require('../Controllers/adminCtrl')
 
 // ADMIN MENU
 
-// GET NEW SERVICE
+// GET NEW SERVICES PAGE
 router.get('/newservice', Admin.newFoodPage)
 
+// MAKE NEW FOOD
+router.post('/newservice', Admin.newFood);
+
 // GET SERVICES
-router.get('/services', Admin.service)
+router.get('/services', Admin.editservice)
 
 // GET USERS
 router.get('/users', Admin.fillUsers)
@@ -19,9 +22,7 @@ router.get('/users', Admin.fillUsers)
 // GET ADMIN MENU
 router.get('/', Admin.adminMenu);
 
-// NEW FOOD PAGE
-router.get('/newFood', Admin.createFood)
-router.post('/newFood', Admin.newFood);
+
 
 
 

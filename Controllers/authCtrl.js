@@ -26,9 +26,9 @@ const createUser = async(req, res) => {
                 req.body.admin = false
             }
             // ENCRYPT CODE
-            // UNCOMMENT WHEN SITE IS FUNCTIONAL
             req.body.email = cryptr.encrypt(req.body.email)
             req.body.payment = cryptr.encrypt(req.body.payment)
+                // ENCRYPT CODE
             const createdUser = await User.create(req.body);
 
             req.session.logged = true;
