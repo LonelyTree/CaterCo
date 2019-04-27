@@ -13,6 +13,8 @@ router.get('/', user.main)
 
 router.get('/neworder', user.neworder)
 
+router.post('/neworder', user.createorder)
+
 
 
 // NEW ORDER PAGE
