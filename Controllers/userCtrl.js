@@ -39,17 +39,21 @@ const addToOrder = async(req, res) => {
 
 // UPDATE FOOD FROM ORDER
 
-// const updateFood = async(req, res) => {
-//     try {
-//         for (let i = 0; i < Food.Food.orders.length; i++) {
-//             const Order = await Food.Food.orders
-//         }
-//         const food = await Food.Food.findByIdAndUpdate(req.params.id, req.body)
-//     }
-//     } catch (err) {
+const updateFood = async(req, res) => {
+    try {
+        for (let i = 0; i < Food.Food.orders.length; i++) {
 
-//     }
-// }
+
+
+
+            const Order = await Food.Food.orders
+        
+        const food = await Food.Food.findByIdAndUpdate(req.params.id, req.body)
+    }
+    } catch (err) {
+
+    }
+}
 
 
 // DELETE FOOD FROM ORDER
