@@ -31,9 +31,17 @@ const removeUsers = async(req, res) => {
 
 }
 
+// GET MENU
 const adminMenu = (req, res) => {
     res.render('../Views/Admin/adminMenu.ejs')
 }
+
+
+// GET SERVICES PAGE
+
+// GET SERVICES PAGE
+
+// GET FOOD
 const createFood = async(req, res) => {
     res.render('../Views/Admin/newService.ejs', {
         categories: Food.Categories
@@ -41,6 +49,13 @@ const createFood = async(req, res) => {
 
 
 }
+
+// GET NEW FOOD PAGE
+const newFoodPage = (req, res) => {
+    res.render("../Views/Admin/newService.ejs")
+}
+
+// MAKE NEW FOOD
 const newFood = async(req, res) => {
     try {
         if (req.body.vegetarian === 'on') {
@@ -61,5 +76,6 @@ module.exports = {
     adminMenu,
     removeUsers,
     newFood,
-    createFood
+    createFood,
+    newFoodPage
 }

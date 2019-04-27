@@ -1,4 +1,5 @@
 require('../db/db')
+const Auth = require('./authCtrl')
 const bcrypt = require('bcrypt')
 const User = require('../models/user')
 const Food = require('../models/food')
@@ -18,6 +19,10 @@ const menu = (req, res) => {
 const info = async(req, res) => {
         try {
             const user = await User.findById(req.session.usersDbId)
+                // ENCRYPT CODE
+                // UNCOMMENT WHEN SITE IS FUNCTIONAL
+            user.email = Auth.cryptr.decrypt(user.email)
+            user.payment = Auth.cryptr.decrypt(user.payment)
             res.render('../Views/Nav/editInfo.ejs', {
                 user
             })
@@ -29,12 +34,15 @@ const info = async(req, res) => {
 const updateInfo = async(req, res) => {
     try {
         if (req.body.password === undefined) {
-            // delete(req.body.password)
             user = User.findById(req.session.usersDbId)
             req.body.password = user.password
+            req.body.email = Auth.cryptr.encrypt(req.body.email)
+            req.body.payment = Auth.cryptr.encrypt(req.body.payment)
             const updatedUser = await User.findByIdAndUpdate(req.session.usersDbId, req.body, { new: true })
             res.redirect('/caterco/edit')
         } else {
+            req.body.email = Auth.cryptr.encrypt(req.body.email)
+            req.body.payment = Auth.cryptr.encrypt(req.body.payment)
             req.body.password = await bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
             const updatedUser = await User.findByIdAndUpdate(req.session.usersDbId, req.body, { new: true })
             res.redirect("/caterco/edit")
