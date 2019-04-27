@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,26 +5,20 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="/css/style.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Lemon" rel="stylesheet">
     </head>
     <body>
-    <h1 id="login">Cater Co. Login</h1>
-    <h2>Login</h2>
+    <h1>Login</h1>
+
+    <p>This is where the user or admin will login to
+    there accounts. After hitting the login button, the user
+    will be taken to the main page.</p>
 
 <%# GOES TO MAIN PAGE %>
-
+<div>
 <form action="/caterco/login" method="POST">
-    <div class ="form-group">
-        <label for="inputUsername1"></label>
-        <input type="text" class ="form-control" name="username" id="inputUsername1" aria-describedby="usernameHelp" placeholder="Username"><br/>
-    </div>
-    <div class="form-group">
-        <label for="inputPassword1"></label>
-        <input type="password" class="form-control" id="inputPassword1" name="password" placeholder="Password"><br/>
-    </div>
-    <button type="submit" class="btn btn-light">Submit</button>
+    <input type="text" name="username" placeholder="Username"><br/>
+    <input type="password" name="password" placeholder="Password"><br/>
+    <button type="submit">Login</button><br/>
 </form>
 
 <%# IGNORES THE SESSION MESSAGE IF NO MESSAGE EXIST %>
@@ -36,109 +29,18 @@
 <%}%>
 <%# IGNORES THE SESSION MESSAGE IF NO MESSAGE EXISTS %>
 
-
+</div>
 
 <div>
-<h2>Register</h2>
+<h1>Register</h1>
+<p> This is where the user can create a new account </p>
 <form action="/caterco/register" method="POST">
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="inputUsername4"></label>
-            <input type="text" class="form-control" id="inputUsername4" name="username" placeholder="Username">
-        </div>
-        <div class="form-group col-md-6">
-            <label for="inputPassword4"></label>
-            <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Password">
-        </div>
-        <div class="form-group col-md-6">
-            <label for="inputEmail4"></label>
-            <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email Address">
-        </div>
-        <div class="form-group col-md-6">
-            <label for="inputPayment4"></label>
-            <input type="text" class="form-control" id="inputPayment4" name="payment" placeholder="Credit Card">
-        </div>
-        <div class="form-group">
-            <label for="inputAddress"></label>
-            <input type="text" class="form-control" name="address" placeholder="Address"><br/>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputCity"></label>
-                <input type="text" class="form-control" id="inputCity" name="city" placeholder="City"><br/>
-            </div>
-            <div class="form-group col-md-4">
-                <label for="inputState"></label>
-                <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                        <option>AL</option>
-                        <option>AK</option>
-                        <option>AZ</option>
-                        <option>AR</option>
-                        <option>CA</option>
-                        <option>CO</option>
-                        <option>CT</option>
-                        <option>DE</option>
-                        <option>FL</option>
-                        <option>GA</option>
-                        <option>HI</option>
-                        <option>ID</option>
-                        <option>IL</option>
-                        <option>IN</option>
-                        <option>IA</option>
-                        <option>KS</option>
-                        <option>KY</option>
-                        <option>LA</option>
-                        <option>ME</option>
-                        <option>MD</option>
-                        <option>MA</option>
-                        <option>MI</option>
-                        <option>MN</option>
-                        <option>MS</option>
-                        <option>MO</option>
-                        <option>MT</option>
-                        <option>NE</option>
-                        <option>NV</option>
-                        <option>NH</option>
-                        <option>NJ</option>
-                        <option>NM</option>
-                        <option>NY</option>
-                        <option>NC</option>
-                        <option>ND</option>
-                        <option>OH</option>
-                        <option>OK</option>
-                        <option>OR</option>
-                        <option>PA</option>
-                        <option>RI</option>
-                        <option>SC</option>
-                        <option>SD</option>
-                        <option>TN</option>
-                        <option>TX</option>
-                        <option>UT</option>
-                        <option>VT</option>
-                        <option>VA</option>
-                        <option>WA</option>
-                        <option>WV</option>
-                        <option>WI</option>
-                        <option>WY</option>
-                </select>
-            </div>
-            <div class="form-group col-md-2">
-                <label for="inputZip"></label>
-                <input type="text" class="form-control" id="inputZip" name="zip" placeholder="Zip">
-            </div>
-
-        </div>
-    </div>
-    <form action="#">
-        <p>
-            <label>
-                <input type="checkbox" name="admin" />
-                <span>Admin</span>
-            </label>
-        </p>
-    </form>
-    <button type="submit" class="btn btn-light">Create Account</button>
+    Username: <input type="text" name="username"><br/>
+    Password: <input type="password" name="password"><br/>
+    Email: <input type="text" name="email"><br/>
+    Credit Card: <input type="text" name="payment"><br/>
+    Admin: <input type="checkbox" name="admin"><br/>
+    <button type="submit">Create Account</button>
 </form>
 </div>
     </body>

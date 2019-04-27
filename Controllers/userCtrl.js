@@ -32,7 +32,6 @@ const neworder = async(req, res) => {
     })
 }
 
-
 const createorder = async(req, res) => {
     //console.log(req.body)
     //create a temp new order object
@@ -62,12 +61,12 @@ const createorder = async(req, res) => {
             
         }
     }
-    console.log("THIS IS THE ORDER BEFORE IT GETS ADDED\n"+theOrder+"\n")
+    //console.log("THIS IS THE ORDER BEFORE IT GETS ADDED\n"+theOrder+"\n")
     try{
     const thisUser=await User.findById(req.session.usersDbId)
-    console.log(thisUser)
+    //console.log(thisUser)
     thisUser.orders.push(theOrder);
-    console.log(thisUser.orders);
+    //console.log(thisUser.orders);
 
     res.redirect('/caterco/main')
     }catch(err){
