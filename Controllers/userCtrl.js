@@ -3,19 +3,6 @@ const Food = require('../models/food')
 const User = require('../models/user')
 const mongoose = require("mongoose");
 
-let orderShell = [];
-
-
-const orderShellWipe = () => {
-    orderShell = [];
-    for (let x = 0; x < Food.Categories.length; x++) {
-        for (let y = 0; y < Food.Food.length; y++) {
-            if (Food.Food[y].category == Food.Categories[x]) {
-                orderShell.push({ name: Food.Food._id, qty: 0 })
-            }
-        }
-    }
-}
 
 // MAIN PAGE
 const main = (req, res) => {
@@ -46,10 +33,6 @@ const neworder = async(req, res) => {
     })
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ac0e9904d8e30a1ee982edb7717a505c7241f27c
 const createorder = async(req, res) => {
     //console.log(req.body)
     //create a temp new order object
@@ -79,12 +62,12 @@ const createorder = async(req, res) => {
             
         }
     }
-    console.log("THIS IS THE ORDER BEFORE IT GETS ADDED\n"+theOrder+"\n")
+    //console.log("THIS IS THE ORDER BEFORE IT GETS ADDED\n"+theOrder+"\n")
     try{
     const thisUser=await User.findById(req.session.usersDbId)
-    console.log(thisUser)
+    //console.log(thisUser)
     thisUser.orders.push(theOrder);
-    console.log(thisUser.orders);
+    //console.log(thisUser.orders);
 
     res.redirect('/caterco/main')
     }catch(err){
