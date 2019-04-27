@@ -7,7 +7,7 @@
     </head>
     <body>
     <div class="foodop">
-     <input type="date" data-date-inline-picker="true" />
+     <input type="date" data-date-inline-picker="true" class="dateinput" />
     <%# FOOD OPTIONS GO HERE %>
     <%# Nested for loops, top one checks category array, second one checks 
     for match, then renders if it matches. category names are at 
@@ -17,12 +17,12 @@
         <%=categories[x]%>
         <%for(let y = 0;y<foods.length;y++){
             if(foods[y].category==categories[x]){%>
-            <div class=foodrow>
+            <div class="foodrow">
                 <div class="foodimg foodcol"><img src="<%=foods[y].img%>"></div>
-                <div class=foodcol>
+                <div class="foodcol">
                 <%=foods[y].name%>
                 <%if(foods[y].vegetarian){%>
-                    <span class=veggie>VEGETARIAN!</span>
+                    <span class="veggie">VEGETARIAN!</span>
                     <%}%><br/>
                 <%=foods[y].description%><br/>
                 <input type="hidden" name="id" value="<%=foods[y].id %>"/>
