@@ -46,7 +46,10 @@ const neworder = async(req, res) => {
     })
 }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> ac0e9904d8e30a1ee982edb7717a505c7241f27c
 const createorder = async(req, res) => {
     //console.log(req.body)
     //create a temp new order object
