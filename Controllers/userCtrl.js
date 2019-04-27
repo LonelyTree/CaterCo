@@ -1,7 +1,7 @@
 require('../db/db')
 const Food = require('../models/food')
 const User = require('../models/user')
-
+const mongoose = require("mongoose");
 
 let orderShell = [];
 
@@ -46,8 +46,50 @@ const neworder = async(req, res) => {
     })
 }
 
+<<<<<<< HEAD
+const createorder = async(req, res) => {
+    //console.log(req.body)
+    //create a temp new order object
+    let theOrder={
+        date: {  },
+        items: []
+    };
+
+
+    //add the date to the object
+    theOrder.date=req.body.thedate;
+    //add all non zero quantity to order
+    for(let i=0;i<req.body.id.length;i++){
+        if(req.body.qty[i]>0){
+            //build food to push
+            let theItem={
+                quanity:Number,
+                fooditem:{
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: 'Food'
+            }};
+
+            let thefood=await Food.Food.findById(req.body.id[i])
+            theItem.fooditem=thefood;
+            theItem.quanity=req.body.qty[i]
+            theOrder.items.push(theItem); 
+            
+        }
+    }
+    console.log("THIS IS THE ORDER BEFORE IT GETS ADDED\n"+theOrder+"\n")
+    try{
+    const thisUser=await User.findById(req.session.usersDbId)
+    console.log(thisUser)
+    thisUser.orders.push(theOrder);
+    console.log(thisUser.orders);
+
+    res.redirect('/caterco/main')
+    }catch(err){
+        res.send(err)}
+=======
 const createorder = (req, res) => {
     console.log(req.body)
+>>>>>>> 90c1636f578df23d058bdd11963dde5bc05071fe
 }
 
 

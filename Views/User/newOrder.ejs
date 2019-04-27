@@ -7,7 +7,7 @@
     </head>
     <body>
     <div class="foodop">
-     <input type="date" data-date-inline-picker="true" />
+     <input type="date" data-date-inline-picker="true" class="dateinput" name="thedate" />
     <%# FOOD OPTIONS GO HERE %>
     <%# Nested for loops, top one checks category array, second one checks 
     for match, then renders if it matches. category names are at 
@@ -26,7 +26,7 @@
                     <%}%><br/>
                 <%=foods[y].description%><br/>
                 <input type="hidden" name="id" value="<%=foods[y].id %>"/>
-                <input type="number"  name="quantity" id="quantity" value="0">
+                <input type="number"  name="qty" id="qty" value="0" min=0>
                 </div>
             </div>
             <%}%>
