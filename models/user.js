@@ -8,11 +8,13 @@ const userSchema = new mongoose.Schema({
     orders: [{
         date: { type: String },
         items: [{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Food'
+            quanity:Number,
+            fooditem:{
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Food'
+        }, 
         }]
-    }]
-    ,
+    }],
     admin: {type:Boolean, default:false}
 });
 
