@@ -22,8 +22,15 @@ const main = (req, res) => {
     res.render('../Views/User/mainPage.ejs')
 }
 
-const confirm = (req, res) => {
-    res.render('../Views/User/confirmOrder.ejs')
+const confirm = async(req, res) => {
+    try {
+        const user = await User.findById(req.session.usersDbId)
+        res.render('../Views/User/confirmOrder.ejs', {
+            orders: user.orders
+        })
+    } catch (err) {
+        res.send(err)
+    }
 }
 
 const thankyou = (req, res) => {
@@ -41,7 +48,6 @@ const neworder = async(req, res) => {
 
 const createorder = (req, res) => {
     console.log(req.body)
-    res.redirect('/caterco/main')
 }
 
 
