@@ -1,6 +1,6 @@
 require("../db/db")
 const Auth = require('../Controllers/authCtrl')
-
+const Food = require('../models/food')
 
 
 // ARRIVAL PAGE
@@ -16,6 +16,13 @@ const menu = (req, res) => {
 // SERVICES PAGE
 const services = (req, res) => {
     res.render("../Views/preview.ejs")
+}
+
+const serviFrame = async(req, res) => {
+    res.render("../Views/showServices.ejs", {
+        categories: Food.Categories,
+        foods: await Food.Food.find({})
+    })
 }
 
 // LOGIN PAGE
@@ -47,5 +54,6 @@ module.exports = {
     login,
     logout,
     services,
-    menu
+    menu,
+    serviFrame
 }
