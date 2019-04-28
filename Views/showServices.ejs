@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+         <%for(let x = 0;x<categories.length;x++){%>
+        <%=categories[x]%>
+        <%for(let y = 0;y<foods.length;y++){
+            if(foods[y].category===categories[x]){%>
+            <div class="foodrow">
+                <div class="foodimg foodcol"><img style="max-width:200px" src="<%=foods[y].img%>"></div>
+                <div class="foodcol">
+                <%=foods[y].name%>
+                <%if(foods[y].vegetarian){%>
+                    <span class="veggie">VEGETARIAN!</span>
+                    <%}%><br/>
+                <span class = "fooddesc"><%=foods[y].description%></span><br/>
+                </div>
+            </div>
+            <%}%>
+        <%}%>
+        <hr>
+    <%}%>
+    </body>
+</html>

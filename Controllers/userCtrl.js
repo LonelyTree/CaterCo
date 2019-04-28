@@ -45,7 +45,7 @@ const createorder = async(req, res) => {
     theOrder.date=req.body.thedate;
     //add all non zero quantity to order
     for(let i=0;i<req.body.id.length;i++){
-        if(req.body.qty[i]>0){
+        
             //build food to push
             let theItem={
                 quanity:Number,
@@ -59,7 +59,7 @@ const createorder = async(req, res) => {
             theItem.quanity=req.body.qty[i]
             theOrder.items.push(theItem); 
             
-        }
+        
     }
     //console.log("THIS IS THE ORDER BEFORE IT GETS ADDED\n"+theOrder+"\n")
     try{

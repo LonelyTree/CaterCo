@@ -24,6 +24,10 @@ router.post('/logout', Main.logout)
 // VALIDATE USER CREDENTIALS
 router.post("/login", Auth.validate)
 
+
+//iFrame get
+router.get("/showServices",Main.serviFrame)
+
 // CREATE USER
 router.post("/register", Auth.createUser)
 
