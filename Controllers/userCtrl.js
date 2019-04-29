@@ -148,5 +148,5 @@ module.exports = {
     neworder,
     addToOrder,
     createorder,
-    editIndvOrder
+    // editIndvOrder
 }
