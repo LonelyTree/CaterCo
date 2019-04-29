@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <form action="/caterco/admin/updateservice/<%=service._id%>?_method=PUT" method="POST">
+
+        </select><br/>
+        Name (required)<br/>
+        <input type="text" name="name" value="<%=service.name%>"><br/><br/>
+
+        IMG (required)<br/>
+        <input type="text" name="img" value="<%=service.img%>"><br/><br/>
+
+        Description<br/>
+        <textarea name="description" ><%=service.description%></textarea><br/><br/>
+
+        Vegitarian<br/>
+        <%if (service.vegetarian){%>
+        <input type="checkbox" name="vegetarian" checked><br/><br/>
+        <%} else {%>
+        <input type="checkbox" name="vegetarian"><br/><br/>
+        <%}%>
+
+        Category:
+        <select name="category">
+        <% for (let i = 0; i < categories.length; i++) { %>
+        <option value="<%=categories[i]%>"><%=categories[i]%></option>
+        <%}%>
+        <input type="submit" value="Update Food">
+    </form>
+
+    </body>
+</html>
