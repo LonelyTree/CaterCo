@@ -13,7 +13,7 @@
     for match, then renders if it matches. category names are at 
     the top of the outer loop, dividers at bottom %>
     <form action="/caterco/main/neworder?_method=POST" method="post">
-    <input type="date" data-date-inline-picker="true" class="dateinput" name="thedate" ><br/>
+    <input type="date" data-date-inline-picker="true" class="dateinput" name="date" ><br/>
     <%for(let i = 0; i < categories.length; i++){%>
         <%=categories[i]%>
         <%for(let j = 0; j < foods.length; j++){
