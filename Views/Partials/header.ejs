@@ -4,7 +4,11 @@
 <li><a href="/caterco">Home</a></li>
 <li><a href="/caterco/edit">View account</a></li>
 <%# IF LOGGED IN %>
-<li><a href="/caterco/logout">LOG OUT</a></li>
+
+<form action="/caterco/logout" method="POST">
+<li><button type="submit">LOG OUT</button></li>
+</form>
+
 <%# IF LOGGED OUT %>
 <li><a href="/caterco/login">LOG IN/REGISTER</a></li>
 </ul>
