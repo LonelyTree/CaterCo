@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Food = require('./food')
+const Orders = require('./orders')
 const userSchema = new mongoose.Schema({
     username: { type: String, required: true },
     password: { type: String, required: true },
