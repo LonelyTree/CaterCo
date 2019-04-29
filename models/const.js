@@ -1,13 +1,23 @@
+require('../db/db')
 const mongoose = require("mongoose");
 
-let d = new Date();
-let year = d.getFullYear();
-let month = d.getMonth()+1;
-let day = d.getDate();
-const Today = `${year}-${month}-${day}`
 
 
 
+const Constants = {
+
+  
+Date:{
+  d:new Date(),
+  year:d.getFullYear(),
+  month:d.getMonth()+1,
+  day:d.getDate(),
+  Today:`${year}-${month}-${day}`
+},
 
 
-module.exports = Today;
+Categories: ["Salads", "Appetizers", "Sandwiches", "Big Entrees", "Drinks"],
+
+}
+module.exports = Constant
+

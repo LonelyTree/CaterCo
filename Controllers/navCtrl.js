@@ -6,11 +6,24 @@ const Food = require('../models/food')
 
 
 
+
 // USER ACCOUNT MENU
 
 // GET ACCOUNT
-const menu = (req, res) => {
-    res.render('../Views/Nav/editMenu.ejs')
+const menu = async (req, res) => {
+    try {
+        const foundUser = await User.findById(
+            req.session.usersDbId
+        );
+   
+        res.render('../Views/Nav/editMenu.ejs',{
+            foundUser
+        })
+       
+    } catch(err){
+        res.send(err);
+    }
+    
 }
 
 // INFO PAGE

@@ -6,14 +6,8 @@ const userSchema = new mongoose.Schema({
     payment: { type: String, required: true },
     email: { type: String, required: true },
     orders: [{
-        date: { type: Date },
-        items: [{
-            quantity: Number,
-            fooditem: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Food'
-            },
-        }]
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Orders'
     }],
     admin: { type: Boolean, default: false }
 });

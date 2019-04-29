@@ -22,12 +22,13 @@
 </form><br/>
 
 <%# RETURNS USER TO MAIN PAGE %>
-
-<h4>Admin Menu</h4>
-<%# IF USER IS ADMIN: %>
-<form action="/caterco/admin" method="GET">
-    <button type="submit">Return to Main Page</button>
-</form><br/>
+<% if(foundUser.admin) { %> 
+    <%# IF USER IS ADMIN: %>
+    <h4>Admin Menu</h4>
+    <form action="/caterco/admin" method="GET" id="admin">
+        <button type="submit" >Return to Main Page</button>
+    </form><br/>
+<% } %>
 
 <h4>Main Menu</h4>
 <%# IF USER IS NOT ADMIN: %>
