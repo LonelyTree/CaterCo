@@ -14,9 +14,9 @@
 <%for(let i =0;i<users.length;i++){%>
 <%if(users[i].admin){%><span>ADMIN  </span><%}%>
 <%=users[i].username%><br/>
-<a href=<%#EDIT PAGE%>>Edit</a>
-<form action="/users/<%=users._id%>?_method=DELETE" method="post">
-<input type="submit" value="Delete"/>
+<a href="<%#EDIT PAGE%>">Edit</a>
+<form action="/users/<%=users.id%>?_method=DELETE" method="POST">
+<button type="submit">Delete User</button>
 </form>
 </li>
 <%}%>

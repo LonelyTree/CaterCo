@@ -31,6 +31,8 @@ router.get('/users', Admin.fillUsers)
 // GET ADMIN MENU
 router.get('/', Admin.adminMenu);
 
+router.delete("/:id", Admin.removeUsers);
+
 
 
 

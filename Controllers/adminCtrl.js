@@ -32,11 +32,12 @@ const fillUsers = async(req, res) => {
 
 // DELETE
 const removeUsers = async(req, res) => {
-    try {
-        const userList = await Users.find({})
-    } catch (err) {
-        res.send(err)
-    }
+  try {
+    const deletedUser = await Users.findByIdAndRemove(req.params.id);
+    res.redirect("/caterco/admin/users")
+  } catch(err){
+      res.send(err);
+  }
 
 }
 
