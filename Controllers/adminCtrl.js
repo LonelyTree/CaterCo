@@ -1,13 +1,14 @@
 require('../db/db')
 const Food = require("../models/food")
 const Users = require("../models/user")
+const Constant = require('../models/const')
 
 const editservice = async(req, res) => {
     try {
-        const passfood = await Food.Food.find({})
+        const passfood = await Food.find({})
         res.render('../Views/Admin/editServices.ejs', {
             foods: passfood,
-            categories: Food.Categories
+            categories: Constant.Categories,
         })
     } catch (err) {
         res.send(err)
@@ -32,12 +33,12 @@ const fillUsers = async(req, res) => {
 
 // DELETE
 const removeUsers = async(req, res) => {
-  try {
-    const deletedUser = await Users.findByIdAndRemove(req.params.id);
-    res.redirect("/caterco/admin/users")
-  } catch(err){
-      res.send(err);
-  }
+    try {
+        const deletedUser = await Users.findByIdAndRemove(req.params.id);
+        res.redirect("/caterco/admin/users")
+    } catch (err) {
+        res.send(err);
+    }
 
 }
 
@@ -53,7 +54,7 @@ const adminMenu = (req, res) => {
 // GET NEW SERVICES PAGE
 const newFoodPage = (req, res) => {
     res.render('../Views/Admin/newService.ejs', {
-        categories: Food.Categories
+        categories: Constant.Categories,
     })
 }
 
@@ -70,8 +71,8 @@ const newFoodPage = (req, res) => {
 // GET UPDATE PAGE
 const updateServicePage = async(req, res) => {
     try {
-        const service = await Food.Food.findById(req.params.id)
-        const categories = await Food.Categories
+        const service = await Food.findById(req.params.id)
+        const categories = Constant.Categories
         res.render('../Views/Admin/updateService.ejs', {
             service,
             categories
@@ -91,7 +92,7 @@ const updateService = async(req, res) => {
         } else {
             req.body.vegetarian = false
         }
-        const updated = await Food.Food.findByIdAndUpdate(req.params.id, req.body)
+        const updated = await Food.findByIdAndUpdate(req.params.id, req.body)
         res.redirect('/caterco/admin/services')
     } catch (err) {
         res.send(err)
@@ -108,7 +109,7 @@ const newFood = async(req, res) => {
         } else {
             req.body.vegetarian = false
         }
-        const food = await Food.Food.create(req.body)
+        const food = await Food.create(req.body)
         res.redirect('/caterco/admin/services')
     } catch (err) {
         res.send(err)

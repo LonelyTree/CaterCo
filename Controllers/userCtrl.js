@@ -1,6 +1,7 @@
 require('../db/db')
 const Food = require('../models/food')
 const User = require('../models/user')
+const Constant = require('../models/const')
 const mongoose = require("mongoose");
 
 // MAIN PAGE
@@ -29,9 +30,9 @@ const thankyou = (req, res) => {
 
 
 const neworder = async(req, res) => {
-    let passfood = await Food.Food.find({})
+    let passfood = await Food.find({})
     res.render('../Views/User/newOrder.ejs', {
-        categories: Food.Categories,
+        categories: Constant.Categories,
         foods: passfood,
     })
 }
@@ -59,7 +60,7 @@ const createorder = async(req, res) => {
             //     }
             // };
 
-        let thefood = await Food.Food.findById(req.body.id[i])
+        let thefood = await Food.findById(req.body.id[i])
         theItem.fooditem = thefood;
         theItem.quantity = req.body.qty[i]
         theOrder.items.push(theItem);
@@ -70,11 +71,11 @@ const createorder = async(req, res) => {
     try {
         const thisUser = await User.findById(req.session.usersDbId)
             //console.log(thisUser)
-            
-            thisUser.orders.push(theOrder)
+
+        thisUser.orders.push(theOrder)
         thisUser.save();
         //console.log(thisUser.orders);
-        
+
         res.redirect('/caterco/main')
     } catch (err) {
         res.send(err)
@@ -100,14 +101,14 @@ const addToOrder = async(req, res) => {
 
 const updateFood = async(req, res) => {
     try {
-        for (let i = 0; i < Food.Food.orders.length; i++) {
+        for (let i = 0; i < Food.orders.length; i++) {
 
 
 
 
-            const Order = await Food.Food.orders
+            const Order = await Food.orders
 
-            const food = await Food.Food.findByIdAndUpdate(req.params.id, req.body)
+            const food = await Food.findByIdAndUpdate(req.params.id, req.body)
         }
     } catch (err) {
 
@@ -124,22 +125,20 @@ const deleteFromOrder = async(req, res) => {
     }
 }
 
-// const editIndvOrder= async(req,res)=>{
-//     try{
-//     const user = await User.findById(req.session.usersDbId);
-//     let theOrder;
-//     for(let i = 0;i<user.orders.length;i++){
-//         if(user.order.date==req.params.date){
-
-//         }
-//     }
-//     res.render('../Views/User/editIndvOrder.ejs',{
-//         categories: Food.Categories,
-//         order:user.order[theOrder],
-//         foods:Food
-
-//     }}catch(err){res.send(err)}
-// })}
+const editIndvOrder = async(req, res) => {
+    try {
+        const user = await User.findById(req.session.usersDbId);
+        let theOrder;
+        for (let i = 0; i < user.orders.length; i++) {
+            if (user.order.date == req.params.date) {}
+        }
+        res.render('../Views/User/editIndvOrder.ejs', {
+            categories: Constant.Categories,
+            order: user.order[theOrder],
+            foods: Food
+        })
+    } catch (err) { res.send(err) }
+}
 
 module.exports = {
     main,
