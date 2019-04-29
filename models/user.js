@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
     payment: { type: String, required: true },
     email: { type: String, required: true },
     orders: [{
-        date: { type: String },
+        date: { type: Date },
         items: [{
             quantity: Number,
             fooditem: {

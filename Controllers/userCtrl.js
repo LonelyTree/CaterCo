@@ -66,10 +66,11 @@ const createorder = async(req, res) => {
     try {
         const thisUser = await User.findById(req.session.usersDbId)
             //console.log(thisUser)
-        thisUser.orders.push(theOrder)
+            
+            thisUser.orders.push(theOrder)
         thisUser.save();
         //console.log(thisUser.orders);
-
+        
         res.redirect('/caterco/main')
     } catch (err) {
         res.send(err)

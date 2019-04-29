@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    ORDER INFO HERE
+<%# This document needs food schema, categories, and the order being 
+edited passed to it %>
+    <%# UPDATES ORDER INFO %>
+    <form action="/caterco/editmenu_method=PUT" method="PUT">
+     <input type="date" data-date-inline-picker="true" class="dateinput" name="thedate" 
+     value=<%=order.date%>><br/>
+        <%for(let i = 0; i < categories.length; i++){%>
+        <%=categories[i]%>
+        <%for(let j = 0; j < foods.length; j++){
+            if(foods[j].category===categories[i]){%>
+            <div class="foodrow">
+                <div class="foodimg foodcol"><img src="<%=foods[j].img%>"></div>
+                <div class="foodcol">
+                <%=foods[j].name%>
+                <%if(foods[j].vegetarian){%>
+                    <span class="veggie">VEGETARIAN!</span>
+                    <%}%><br/>
+                <%=foods[j].description%><br/>
+                <input type="hidden" name="id" value="<%=foods[j].id %>"/>
+                <%let amount=0;
+                if(foods[j].id===order.items[j].fooditem.id)
+                { amount = order.items[j].quantity}else{amount = 0}%>
+                <input type="number"  name="qty" id="qty" value="<%=amount%>" min="0">
+                </div>
+            </div>
+            <%}%>
+        <%}%>
+        <hr>
+    <%}%>
+
+
+
+
+
+    <button type="submit">Update Order</button>
+    </form>
+
+
+    <%# LOGOUT %>
+    <form action="/caterco/logout" method="POST">
+    <button type="submit">Logout</button>
+    </form>
+    </body>
+</html>
+
