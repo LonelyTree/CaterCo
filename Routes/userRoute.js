@@ -17,6 +17,8 @@ router.get('/neworder', user.neworder)
 
 router.post('/neworder', user.createorder)
 
+router.get('/editOrder/:date',user.editIndvOrder)
+
 // UPDATE FOOD TO ORDER
 router.put('/')
 

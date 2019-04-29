@@ -119,11 +119,30 @@ const deleteFromOrder = async(req, res) => {
         res.send(err)
     }
 }
+
+// const editIndvOrder= async(req,res)=>{
+//     try{
+//     const user = await User.findById(req.session.usersDbId);
+//     let theOrder;
+//     for(let i = 0;i<user.orders.length;i++){
+//         if(user.order.date==req.params.date){
+
+//         }
+//     }
+//     res.render('../Views/User/editIndvOrder.ejs',{
+//         categories: Food.Categories,
+//         order:user.order[theOrder],
+//         foods:Food
+
+//     }}catch(err){res.send(err)}
+// })}
+
 module.exports = {
     main,
     confirm,
     thankyou,
     neworder,
     addToOrder,
-    createorder
+    createorder,
+    editIndvOrder
 }
