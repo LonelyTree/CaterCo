@@ -40,12 +40,14 @@ const neworder = async(req, res) => {
 const createorder = async(req, res) => {
     //console.log(req.body)
     //create a temp new order object
-    let theOrder = {
-        date: {},
-        items: []
-    };
 
-
+    try {
+        const food = await Food.create(req.body)
+        const order = await Order.create(req.body.date)
+        order.food = food
+    } catch (err) {
+        res.send(err)
+    }
     //add the date to the object
     theOrder.date = req.body.thedate;
     //add all non zero quantity to order
