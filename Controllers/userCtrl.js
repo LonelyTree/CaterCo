@@ -11,6 +11,10 @@ const main = (req, res) => {
 const confirm = async(req, res) => {
     try {
         const user = await User.findById(req.session.usersDbId)
+
+        // for (let i = 0; i < user.orders.length; i++) {
+        //     orders[i].date
+        // }
         res.render('../Views/User/confirmOrder.ejs', {
             orders: user.orders
         })
