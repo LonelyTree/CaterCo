@@ -1,6 +1,7 @@
 require("../db/db")
 const Auth = require('../Controllers/authCtrl')
 const Food = require('../models/food')
+const Constant = require('../models/const')
 
 
 // ARRIVAL PAGE
@@ -20,8 +21,8 @@ const services = (req, res) => {
 
 const serviFrame = async(req, res) => {
     res.render("../Views/showServices.ejs", {
-        categories: Food.Categories,
-        foods: await Food.Food.find({})
+        categories: Constant.Categories,
+        foods: await Food.find({})
     })
 }
 
@@ -35,7 +36,6 @@ const login = (req, res) => {
             message: req.session.message
         })
     }
-
 }
 
 const logout = (req, res) => {
