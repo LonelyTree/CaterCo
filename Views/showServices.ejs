@@ -8,7 +8,7 @@
     </head>
     <body>
          <%for(let x = 0;x<categories.length;x++){%>
-        <%=categories[x]%>
+        <div class="category"><%=categories[x]%></div>
         <%for(let y = 0;y<foods.length;y++){
             if(foods[y].category===categories[x]){%>
             <div class="foodrow">
