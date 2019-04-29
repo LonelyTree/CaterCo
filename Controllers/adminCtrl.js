@@ -51,7 +51,7 @@ const adminMenu = (req, res) => {
 // GET SERVICES PAGE
 
 // GET NEW SERVICES PAGE
-const newFoodPage = async(req, res) => {
+const newFoodPage = (req, res) => {
     res.render('../Views/Admin/newService.ejs', {
         categories: Food.Categories
     })
