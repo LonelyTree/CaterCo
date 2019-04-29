@@ -35,42 +35,45 @@ const neworder = async(req, res) => {
 const createorder = async(req, res) => {
     //console.log(req.body)
     //create a temp new order object
-    let theOrder={
-        date: {  },
+    let theOrder = {
+        date: {},
         items: []
     };
 
 
     //add the date to the object
-    theOrder.date=req.body.thedate;
+    theOrder.date = req.body.thedate;
     //add all non zero quantity to order
-    for(let i=0;i<req.body.id.length;i++){
-        
+    for (let i = 0; i < req.body.id.length; i++) {
+        let theItem = {}
             //build food to push
-            let theItem={
-                quanity:Number,
-                fooditem:{
-                    type: mongoose.Schema.Types.ObjectId,
-                    ref: 'Food'
-            }};
+            // let theItem = {
+            //     quantity: Number,
+            //     fooditem: {
+            //         type: mongoose.Schema.Types.ObjectId,
+            //         ref: 'Food'
+            //     }
+            // };
 
-            let thefood=await Food.Food.findById(req.body.id[i])
-            theItem.fooditem=thefood;
-            theItem.quanity=req.body.qty[i]
-            theOrder.items.push(theItem); 
-            
-        
+        let thefood = await Food.Food.findById(req.body.id[i])
+        theItem.fooditem = thefood;
+        theItem.quantity = req.body.qty[i]
+        theOrder.items.push(theItem);
+
+
     }
     //console.log("THIS IS THE ORDER BEFORE IT GETS ADDED\n"+theOrder+"\n")
-    try{
-    const thisUser=await User.findById(req.session.usersDbId)
-    //console.log(thisUser)
-    thisUser.orders.push(theOrder);
-    //console.log(thisUser.orders);
+    try {
+        const thisUser = await User.findById(req.session.usersDbId)
+            //console.log(thisUser)
+        thisUser.orders.push(theOrder)
+        thisUser.save();
+        //console.log(thisUser.orders);
 
-    res.redirect('/caterco/main')
-    }catch(err){
-        res.send(err)}
+        res.redirect('/caterco/main')
+    } catch (err) {
+        res.send(err)
+    }
 }
 
 
