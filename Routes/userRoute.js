@@ -18,7 +18,7 @@ router.get('/neworder', user.neworder)
 router.post('/neworder', user.createorder)
 
 
-router.get('/editOrder/:id', user.editIndvOrder)
+// router.get('/editOrder/:id', user.editIndvOrder)
 
 
 // UPDATE FOOD TO ORDER
