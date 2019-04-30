@@ -7,6 +7,7 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
+     <%- include ../Partials/header.ejs %>
 <%#List of users  %>
 <ul>
 
@@ -26,10 +27,8 @@
 
 
 <%# LOGOUT %>
-<form action="/caterco/logout" method="POST">
-<button type="submit">Logout</button>
-</form>
 
 
+<%- include ../Partials/footer.ejs %>
     </body>
 </html>

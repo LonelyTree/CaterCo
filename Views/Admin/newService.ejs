@@ -6,9 +6,7 @@
         <link href="/css/style.css" rel="stylesheet">
     </head>
     <body>
-    <header>
-      
-    </header>
+     <%- include ../Partials/header.ejs %>
 
 <%# ADD FOOD HERE %>
 <form action="/caterco/admin/newservice" method="post">
@@ -32,14 +30,6 @@
       </form>
 
 
-
-
-
-<%# LOGOUT %>
-<form action="/caterco/logout" method="GET">
-<button type="submit">Logout</button>
-</form>
-
-
+<%- include ../Partials/footer.ejs %>
     </body>
 </html>

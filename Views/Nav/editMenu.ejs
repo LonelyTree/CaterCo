@@ -7,7 +7,7 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-
+ <%- include ../Partials/header.ejs %>
     
 <h4>Edit Your Order</h4>
 <%# LINK TO ORDER SETTINGS %>
@@ -35,12 +35,6 @@
 <form action="/caterco/main" method="GET">
     <button type="submit">Return to Main Page</button>
 </form><br/>
-
-
-
-<%# LOGOUT %>
-<form action="/caterco/logout" method="POST">
-<button type="submit">Logout</button>
-</form>
+<%- include ../Partials/footer.ejs %>
     </body>
 </html>

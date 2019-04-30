@@ -52,6 +52,9 @@
   body{
     margin-left: 10%;
     margin-right:10%;
+    height: 110%;
+    margin-top: 0;
+    margin-bottom: 0;
   }
   .viewfood{
     margin-left: 10%;
@@ -89,7 +92,7 @@
     border: #333
   }
   
-  
+
   
   /* Change the color of links on hover */
   .navcontain a:hover {
@@ -105,4 +108,23 @@
   .navcontain a.active {
     background-color: #4CAF50;
     color: white;
+  }
+
+
+  /*FOOTER*/
+  html, body {
+    height: 100%;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  .content {
+    flex: 1 0 auto;
+  }
+  .footer {
+    flex-shrink: 0;
+    background-color: #333333;
+    height:30px;
+    margin-top:10px;
   }
