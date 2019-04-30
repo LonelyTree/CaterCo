@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     email: { type: String, required: true },
     orders: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Orders'
+        ref: 'Order'
     }],
     admin: { type: Boolean, default: false }
 });

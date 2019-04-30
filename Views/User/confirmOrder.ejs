@@ -11,7 +11,7 @@
     <h1>Confirm Your Order!</h1>
 
 <%for(let i=0; i<orders.length;i++){%>
-<li><a href="/caterco/edit/orders/<%=orders[i].date%>"><%=orders[i].date%></a></li>
+<li><a href="/caterco/main/editOrder/<%=orders[i]._id%>"><%=orders[i].date%></a></li>
 <%}%>
 
 <%# LINK TO ACCOUNT SETTINGS %>
