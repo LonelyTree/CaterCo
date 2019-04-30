@@ -17,7 +17,7 @@ app.use(methodOverride("_method"));
 app.use(logger("dev"));
 
 
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/views'));
 app.use(session({
     secret: "This is a secret that only we know so do not tell anyone",
     resave: false,
