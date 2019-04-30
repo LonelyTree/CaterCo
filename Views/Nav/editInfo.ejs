@@ -7,7 +7,7 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-
+ <%- include ../Partials/header.ejs %>
         <%# UPDATE USER INFO %>
     <form action="/caterco/edit?_method=PUT" method="POST">
 
@@ -23,10 +23,6 @@
     </form>
 
 
-    <%# LOGOUT %>
-    <div class=logout><form action="/caterco/logout" method="POST">
-<button type="submit">Logout</button>
-</form></div>
     
     </body>
 </html>

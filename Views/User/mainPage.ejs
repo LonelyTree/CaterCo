@@ -7,6 +7,7 @@
         <link href="/css/style.css" rel="stylesheet">
     </head>
     <body>
+     <%- include ../Partials/header.ejs %>
     <h1>This is the main page!</h1>
 
     <p>This is the main page that comes after logging in. The user
@@ -27,10 +28,6 @@ This will take you to start a new food order.
 
 <p> Will take you back to arrival page. </p>
 <%# LOGOUT %>
-<form action="/caterco/logout" method="POST">
-<button type="submit">Logout</button>
-</form>
-
 
     </body>
 </html>
