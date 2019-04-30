@@ -19,7 +19,7 @@
         <%for(let j = 0; j < foods.length; j++){
             if(foods[j].category===categories[i]){%>
             <div class="foodrow">
-                <div class="foodcol"><img class="foodimg" src="<%=foods[j].img%>"></div>
+                <div class="foodcoli"><img class="foodimg" src="<%=foods[j].img%>"></div>
                 <div class="foodcol">
                 <%=foods[j].name%>
                 <%if(foods[j].vegetarian){%>
