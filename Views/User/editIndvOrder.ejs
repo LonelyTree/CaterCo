@@ -7,30 +7,42 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
+     <%- include ../Partials/header.ejs %>
     ORDER INFO HERE
-<%# This document needs food schema, categories, and the order being 
+<%# This document needs food schema, categories, and the order being
 edited passed to it %>
     <%# UPDATES ORDER INFO %>
     <form action="/caterco/user/=PUT" method="PUT">
-     <input type="date" data-date-inline-picker="true" class="dateinput" name="thedate" 
-     value=<%=order.date%>><br/>
-        <%for(let i = 0; i < categories.length; i++){%>
-        <%=categories[i]%>
-        <%for(let j = 0; j < foods.length; j++){
-            if(foods[j].category===categories[i]){%>
+        <input type="date" data-date-inline-picker="false" class="dateinput" name="thedate" value='<%=order.date%>'><br/>
+            <%for(let i = 0; i < categories.length; i++){%>
+            <%=categories[i]%>
+
+            <%#ADD MORE TO ORDER%>
+            <form action="caterco/editOrder/<%=order._id%>?_method=PUT" method="POST">
+            <button type="Submit">Add New</button>
+            </form>
+            <%#ADD MORE TO ORDER%>
+
+            <%for(let j = 0; j < order.items.length; j++){%>
+            <%if(order.items[j].category===categories[i]){%>
             <div class="foodrow">
-                <div class="foodimg foodcol"><img src="<%=foods[j].img%>"></div>
-                <div class="foodcol">
-                <%=foods[j].name%>
-                <%if(foods[j].vegetarian){%>
+                    <div class="foodcoli">
+                        <img class="foodimg" // undo this comment when src are in the img property // src="<%=order.items[j].img%>"
+                        >
+                    </div>
+                    <div class="foodcol">
+                    <p><%=order.items[j].name%> </p>
+                    <%if(order.items[j].vegetarian){%>
                     <span class="veggie">VEGETARIAN!</span>
-                    <%}%><br/>
-                <%=foods[j].description%><br/>
-                <input type="hidden" name="id" value="<%=foods[j].id %>"/>
-                <%let amount=0;
-                if(foods[j].id===order.items[j].fooditem.id)
-                { amount = order.items[j].quantity}else{amount = 0}%>
-                <input type="number"  name="qty" id="qty" value="<%=amount%>" min="0">
+                <%}%><br/>
+
+                <%=order.items[j].description%><br/>
+
+                <input type="hidden" name="id" value="<%=order.items[j].id%>">
+
+                <input type="number"  name="quantity" id="qty" value="<%=order.items[j].quantity%>">
+                <form action="/caterco/main/editOrder/<%=order.items[j].id%>?_method=DELETE" method="POST">
+                <button type="submit">Delete</button>
                 </div>
             </div>
             <%}%>
@@ -46,10 +58,7 @@ edited passed to it %>
     </form>
 
 
-    <%# LOGOUT %>
-    <form action="/caterco/logout" method="POST">
-    <button type="submit">Logout</button>
-    </form>
+    <%- include ../Partials/footer.ejs %>
     </body>
 </html>
 

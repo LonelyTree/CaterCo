@@ -7,6 +7,7 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
+     <%- include ../Partials/header.ejs %>
 
     <%for(let i = 0;i<categories.length;i++){%>
         <%=categories[i]%>
@@ -43,11 +44,9 @@
 <button type="submit">Make New Service</button>
 </form>
 
-<%# LOGOUT %>
-<form action="/caterco/logout" method="POST">
-<button type="submit">Logout</button>
-</form>
 
 
+
+<%- include ../Partials/footer.ejs %>
     </body>
 </html>
