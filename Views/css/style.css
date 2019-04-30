@@ -1,0 +1,130 @@
+.foodimg{
+    max-width: 200px;
+    max-height: 200px;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  
+
+  
+  
+
+}
+
+.foodcol {
+    float: left;
+    width: 75%;
+    border-bottom-color: black;
+    border-bottom-width: 1px;
+    border-bottom-style: dashed;
+    height: 210px;
+    
+  }
+  .foodcoli {
+    float: left;
+    width: 25%;
+    border-bottom-color: black;
+    border-bottom-width: 1px;
+    border-bottom-style: dashed;
+    height:210px;
+  }
+  .foodname{
+      font-weight: 600;
+  }
+  .veggie{
+      border-width: 2px;
+      color: lightgreen;
+      padding-right: 50%;
+      float:right;
+      
+  }
+  
+  /* Clear floats after the columns */
+  .foodrow:after {
+    content: "";
+    display: table;
+    clear: both;
+    margin-left: 25%;
+    margin-right:25%;
+    padding:3px;
+    
+  }
+  body{
+    margin-left: 10%;
+    margin-right:10%;
+    height: 110%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .viewfood{
+    margin-left: 10%;
+    margin-right:10%;
+  }
+  .category{
+    font-size: 20px;
+    font-weight: 1500;
+  }
+
+  .navcontain {
+    background-color: #333;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .navcontain a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .navcontain button{
+    float: left;
+    background-color:#333;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border: #333
+  }
+  
+
+  
+  /* Change the color of links on hover */
+  .navcontain a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  .navcontain button:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  .navcontain a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+
+  /*FOOTER*/
+  html, body {
+    height: 100%;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  .content {
+    flex: 1 0 auto;
+  }
+  .footer {
+    flex-shrink: 0;
+    background-color: #333333;
+    height:30px;
+    margin-top:10px;
+  }

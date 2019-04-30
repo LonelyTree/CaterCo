@@ -1,15 +1,18 @@
+<head><link href="/css/style.css" rel="stylesheet" type="text/css"></head>
 <nav class=navbar>
 <div class=navcontain>
-<ul class="navbar-nav">
-<li><a href="/caterco">Home</a></li>
-<li><a href="/caterco/edit">View account</a></li>
-<%# IF LOGGED IN %>
+<a href="/caterco">Home</a>
+<a href="/caterco/edit">View account</a>
 
-<form action="/caterco/logout" method="POST">
-<li><button type="submit">LOG OUT</button></li>
-</form>
 
 <%# IF LOGGED OUT %>
-<li><a href="/caterco/login">LOG IN/REGISTER</a></li>
-</ul>
+<form action="/caterco/login">
+<button type="submit" value="Log in">Log in</button>
+</form>
+
+
+<form action="/caterco/logout" method="POST">
+<button class="outbutton" type="submit">Log out</button>
+</form>
+</div>
 </nav>

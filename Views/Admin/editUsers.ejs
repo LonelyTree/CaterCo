@@ -7,15 +7,17 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
+     <%- include ../Partials/header.ejs %>
 <%#List of users  %>
 <ul>
 
 <!--MAKES A LIST OF USERS W/ LINK TO EDIT AND DELETE-->
 <%for(let i =0;i<users.length;i++){%>
+<li>
 <%if(users[i].admin){%><span>ADMIN  </span><%}%>
 <%=users[i].username%><br/>
 <a href="<%#EDIT PAGE%>">Edit</a>
-<form action="/users/<%=users.id%>?_method=DELETE" method="POST">
+<form action="/caterco/admin/users/<%=users[i]._id%>?_method=DELETE" method="POST">
 <button type="submit">Delete User</button>
 </form>
 </li>
@@ -25,10 +27,8 @@
 
 
 <%# LOGOUT %>
-<form action="/caterco/logout" method="POST">
-<button type="submit">Logout</button>
-</form>
 
 
+<%- include ../Partials/footer.ejs %>
     </body>
 </html>

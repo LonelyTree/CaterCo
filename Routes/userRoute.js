@@ -17,7 +17,9 @@ router.get('/neworder', user.neworder)
 
 router.post('/neworder', user.createorder)
 
+
 router.get('/editOrder/:id', user.editIndvOrder)
+
 
 // UPDATE FOOD TO ORDER
 router.put('/')
@@ -25,8 +27,6 @@ router.put('/')
 
 // DELETE FOOD TO ORDER
 router.delete('/')
-
-
 
 
 
