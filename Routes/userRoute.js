@@ -17,10 +17,11 @@ router.get('/neworder', user.neworder)
 
 router.post('/neworder', user.createorder)
 
-router.get('/editOrder/:date',user.editIndvOrder)
+router.get('/editOrder/:id', user.editIndvOrder)
 
 // UPDATE FOOD TO ORDER
 router.put('/')
+    // /caterco/main/addtoOrder
 
 // DELETE FOOD TO ORDER
 router.delete('/')

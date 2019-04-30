@@ -26,8 +26,13 @@
                     <span class="veggie">VEGETARIAN!</span>
                     <%}%><br/>
                 <%=foods[j].description%><br/>
+                <input type="hidden" name="img" value="<%=foods[j].img %>"/>
                 <input type="hidden" name="id" value="<%=foods[j].id %>"/>
-                <input type="number"  name="qty" id="qty" value="0" min="0">
+                <input type="hidden" name="description" value="<%=foods[j].description %>"/>
+                <input type="hidden" name="vegetarian" value="<%=foods[j].vegetarian %>"/>
+                <input type="hidden" name="category" value="<%=foods[j].category %>"/>
+                <input type="hidden" name="name" value="<%=foods[j].name %>"/>
+                <input type="number"  name="quantity" id="qty" value="0" min="0">
                 </div>
             </div>
             <%}%>
