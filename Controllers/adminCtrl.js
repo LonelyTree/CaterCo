@@ -44,8 +44,9 @@ const removeUsers = async (req, res) => {
 }
 
 // GET MENU
-const adminMenu = (req, res) => {
-    res.render('../Views/Admin/adminMenu.ejs')
+const adminMenu = async (req, res) => {
+   res.render('../Views/Admin/adminMenu.ejs')
+  
 }
 
 
