@@ -11,16 +11,13 @@
     <h1>Confirm Your Order!</h1>
 
 <%for(let i=0; i<orders.length;i++){%>
-<li><a href="/caterco/main/editOrder/<%=orders[i]._id%>"><%=orders[i].date%></a></li>
+<li><a href="/caterco/main/confirm/<%=orders[i]._id%>"><%=orders[i].date%></a></li>
 <%}%>
 
 <%# LINK TO ACCOUNT SETTINGS %>
 <a href="/caterco/edit">Your account</a>
 
 <%# LINK TO THANKYOU PAGE %>
-<form action="/caterco/main/confirm/thankyou" method="GET">
-<button type="submit">Confirm</button>
-</form>
 <%- include ../Partials/footer.ejs %>
     </body>
 </html>
