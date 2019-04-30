@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    
+    <%- include ../Partials/header.ejs %>
         <title></title>
         <meta charset="UTF-8">
     </head>
@@ -19,7 +19,7 @@
         <%for(let j = 0; j < foods.length; j++){
             if(foods[j].category===categories[i]){%>
             <div class="foodrow">
-                <div class="foodimg foodcol"><img src="<%=foods[j].img%>"></div>
+                <div class="foodcol"><img class="foodimg" src="<%=foods[j].img%>"></div>
                 <div class="foodcol">
                 <%=foods[j].name%>
                 <%if(foods[j].vegetarian){%>
