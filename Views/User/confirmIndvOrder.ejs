@@ -9,24 +9,21 @@
     <body>
      <%- include ../Partials/header.ejs %>
     ORDER INFO HERE
-<%# This document needs food schema, categories, and the order being
-edited passed to it %>
+<%# This document needs food schema, categories, and the order being edited passed to it %>
+
     <%# UPDATES ORDER INFO %>
-    <form action="/caterco/user/=PUT" method="PUT">
+<form id="editOrder" action="/caterco/main/editOrder/<%=order._id%>" method="GET"></form>
+<form id="confirmOrder" action="/caterco/main/confirm/thankyou" method="GET"></form>
+
         <input type="date" data-date-inline-picker="false" class="dateinput" name="thedate" value='<%=order.date%>'><br/>
             <%for(let i = 0; i < categories.length; i++){%>
+            
             <%=categories[i]%>
-
-            <%#ADD MORE TO ORDER%>
-            <form action="caterco/editOrder/<%=order._id%>?_method=PUT" method="POST">
-            <button type="Submit">Add New</button>
-            </form>
-            <%#ADD MORE TO ORDER%>
-
             <%for(let j = 0; j < order.items.length; j++){%>
             <%if(order.items[j].category===categories[i]){%>
             <div class="foodrow">
                     <div class="foodcoli">
+
                         <img class="foodimg" // undo this comment when src are in the img property // src="<%=order.items[j].img%>"
                         >
                     </div>
@@ -40,9 +37,8 @@ edited passed to it %>
 
                 <input type="hidden" name="id" value="<%=order.items[j].id%>">
 
-                <input type="number"  name="quantity" id="qty" value="<%=order.items[j].quantity%>">
-                <form action="/caterco/main/editOrder/<%=order.items[j].id%>?_method=DELETE" method="POST">
-                <button type="submit">Delete</button>
+                <p><%=order.items[j].quantity%></p>
+                
                 </div>
             </div>
             <%}%>
@@ -51,13 +47,10 @@ edited passed to it %>
     <%}%>
 
 
-
-
-
-    <button type="submit">Update Order</button>
-    </form>
-
-
+<button type="submit" form="editOrder">Edit Order</button>
+<br/>
+<br/>
+<button type="submit" form="confirmOrder">Confirm Order</button>
     <%- include ../Partials/footer.ejs %>
     </body>
 </html>

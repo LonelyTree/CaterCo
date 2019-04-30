@@ -3,6 +3,8 @@ const Auth = require('./authCtrl')
 const bcrypt = require('bcrypt')
 const User = require('../models/user')
 const Food = require('../models/food')
+const Constant = require('../models/const')
+const FoodModel = require('../models/foodConstant')
 
 
 
@@ -10,20 +12,20 @@ const Food = require('../models/food')
 // USER ACCOUNT MENU
 
 // GET ACCOUNT
-const menu = async (req, res) => {
+const menu = async(req, res) => {
     try {
         const foundUser = await User.findById(
             req.session.usersDbId
         );
-   
-        res.render('../Views/Nav/editMenu.ejs',{
+
+        res.render('../Views/Nav/editMenu.ejs', {
             foundUser
         })
-       
-    } catch(err){
+
+    } catch (err) {
         res.send(err);
     }
-    
+
 }
 
 // INFO PAGE
@@ -47,7 +49,7 @@ const info = async(req, res) => {
 const updateInfo = async(req, res) => {
     try {
         if (req.body.password === undefined) {
-           user = await User.findById(req.session.usersDbId)
+            user = await User.findById(req.session.usersDbId)
             req.body.password = user.password
             req.body.email = Auth.cryptr.encrypt(req.body.email)
             req.body.payment = Auth.cryptr.encrypt(req.body.payment)
@@ -72,8 +74,16 @@ const updateInfo = async(req, res) => {
 // ORDER INFO PAGE
 
 // GET ORDERS
-const orders = (req, res) => {
-    res.render('../Views/Nav/editOrders.ejs')
+const orders = async(req, res) => {
+    const user = await User.findById(req.session.usersDbId).populate({ path: "orders", populate: { path: "items", model: "Food" } })
+    const order = user.orders
+
+    console.log(order)
+    res.render('../Views/Nav/editOrders.ejs', {
+        order,
+        categories: Constant.Categories,
+        foods: FoodModel
+    })
 }
 
 
