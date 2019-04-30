@@ -60,15 +60,14 @@ const newFoodPage = (req, res) => {
 }
 
 // DELETE SERVICE
-// const deleteService = async(req, res) => {
-//         try {
-//             console.log(req.params.id)
-//             const foundUsers = await Users.update({ 'orders.items.fooditem': req.params.id }, { $pull: { fooditem: req.params.id } }, { multi: true })
-//             console.log(foundUsers)
-//         } catch (err) {
-//             console.log(err)
-//         }
-//     }
+const deleteService = async(req, res) => {
+      try{
+        const deletedService = await Food.findByIdAndRemove(req.params.id);
+        res.redirect("/caterco/admin/services");
+      } catch(err){
+          res.send(err);
+      }
+    }
 // GET UPDATE PAGE
 const updateServicePage = async(req, res) => {
     try {
@@ -124,7 +123,7 @@ module.exports = {
     removeUsers,
     newFoodPage,
     newFood,
-    // deleteService,
+    deleteService,
     updateServicePage,
     updateService
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +14,7 @@
         <%for(let y = 0;y<foods.length;y++){
             if(foods[y].category===categories[x]){%>
             <div class="foodrow">
-                <div class="foodcoli"><img class="foodimg" src="<%=foods[y].img%>"></div>
+                <div class="foodcoli"><img class="foodimg"  src="<%=foods[y].img%>"></div>
                 <div class="foodcol">
                 <div class='foodname'><%=foods[y].name%></div>
                 <%if(foods[y].vegetarian){%>
@@ -26,6 +27,8 @@
         <%}%>
         <hr>
     <%}%>
+
+    
 
     </body>
 </html>
