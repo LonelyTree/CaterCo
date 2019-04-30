@@ -2,26 +2,25 @@
 <html lang="en">
     <head>
         <title></title>
+        <link href="https://fonts.googleapis.com/css?family=Wendy+One" rel="stylesheet">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="/css/style.css" rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet" type="text/css">
        
     </head>
     <body>
-<h1 id="main">C A T E R  C O</h1>
+<h1 class="bigname">C A T E R  C O</h1>
 
 
-    <ul>
-        <li>
-            <a href="/caterco/services">Services</a>
-        </li>
-    </ul>
+    <div class=topreview>
+    <a  href="/caterco/services">SEE OUR SERVICES!</a>
+        
 
 
 <%# ENTER SITE %>
-<form action="/caterco/login" method="GET">
-<button type="submit" class="btn btn-light" id="enter">Enter</button>
-</form>
-<%- include ../Partials/footer.ejs %>
+<form  action="/caterco/login" method="GET">
+<button class = "loginbutton" type="submit" class="btn btn-light" id="enter">Enter</button>
+</form></div
+
     </body>
 </html>

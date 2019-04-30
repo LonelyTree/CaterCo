@@ -91,6 +91,29 @@
     font-size: 17px;
     border: #333
   }
+
+.preview{
+    width:400px;
+    height: 400px;
+  }
+  .showServ{
+      width:400px;
+  }
+
+  .bigname{
+    font-family: 'Wendy One', sans-serif;
+    font-size: 10vw;
+    margin:auto;
+  }
+  .topreview{
+    font-family: 'Wendy One', sans-serif;
+    font-size: 4vw;
+    margin:auto;
+  }
+  .loginbutton{
+    margin:0 50%;
+    text-align: center;
+  }
   
 
   
