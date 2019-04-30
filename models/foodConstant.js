@@ -39,6 +39,14 @@ const Food = [{
         vegetarian: true,
         category: "Salads",
         id: 5
+    },
+    {
+        name: "Chicken Chop Salad",
+        img: "nonsense",
+        description: "Delicious chicken and leaves dish",
+        vegetarian: false,
+        category: "Salads",
+        id: 6
     }
 ]
 

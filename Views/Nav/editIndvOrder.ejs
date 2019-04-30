@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+<div class="foodop">
+
+
+    <form action="/caterco/main/editOrder/<%=order._id%>?_method=PUT" method="POST">
+        <%=categories%>
+        <%for(let j = 0; j < foods.length; j++){
+            if(foods[j].category===categories){%>
+            <div class="foodrow">
+                <div class="foodcoli"><img class="foodimg" src="<%=foods[j].img%>"></div>
+                <div class="foodcol">
+                <%=foods[j].name%>
+                <%if(foods[j].vegetarian){%>
+                    <span class="veggie">VEGETARIAN!</span>
+                    <%}%><br/>
+                <%=foods[j].description%><br/>
+                <input type="hidden" name="img" value="<%=foods[j].img %>"/>
+                <input type="hidden" name="id" value="<%=foods[j].id %>"/>
+                <input type="hidden" name="description" value="<%=foods[j].description %>"/>
+                <input type="hidden" name="vegetarian" value="<%=foods[j].vegetarian %>"/>
+                <input type="hidden" name="category" value="<%=foods[j].category %>"/>
+                <input type="hidden" name="name" value="<%=foods[j].name %>"/>
+                <input type="number"  name="quantity" id="qty" value="0" min="0"/>
+                </div>
+            </div>
+            <%}%>
+        <%}%>
+        <hr>
+
+    <button type="submit">Add to Order</button>
+   </form>
+    
+    </div>
+
+    </body>
+</html>

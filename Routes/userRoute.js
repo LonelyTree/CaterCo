@@ -17,16 +17,24 @@ router.get('/neworder', user.neworder)
 
 router.post('/neworder', user.createorder)
 
+// VIEW INDIVIDUAL ORDER
+router.get('/confirm/:orderId', user.viewIndvOrder)
 
-// router.get('/editOrder/:id', user.editIndvOrder)
+// EDIT ORDER
+router.get('/editOrder/:orderId', user.editOrder)
 
+// GET UPDATES FOR CATEGORIES OF ORDER
+router.get('/editOrder/:category/:orderId', user.updateOrder)
+    // /editOrder/<%=categories[i]%>/<%=order._id%>?_method=PUT
 
-// UPDATE FOOD TO ORDER
-router.put('/')
-    // /caterco/main/addtoOrder
+// ADD UPDATES FOR CATEGORIES TO ORDER
+router.put('/editOrder/:orderId', user.addToOrder)
 
-// DELETE FOOD TO ORDER
-router.delete('/')
+///<%=order._id%>?_method=PUT
+
+// DELETE FOOD FROM ORDER
+router.delete('/editOrder/:orderId')
+    // /editOrder/<%=order.items[j].id%>?_method=DELETE
 
 
 
