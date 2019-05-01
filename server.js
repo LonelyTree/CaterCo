@@ -4,14 +4,11 @@ const methodOverride = require("method-override");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const session = require("express-session");
-const port = process.env.PORT || 3000;
 
-require("dotenv").config();
 const mainRouter = require("./Routes/mainRoute");
 const adminRouter = require('./Routes/adminRoute')
 const navRouter = require('./Routes/navRoute')
 const userRouter = require('./Routes/userRoute')
-
 
 
 
@@ -35,6 +32,6 @@ app.use("/caterco/main", userRouter);
 
 
 
-app.listen(port, err => {
-    console.log(err || "Server is listening on port: ", port);
+app.listen(3000, err => {
+    console.log(err || "Server is listening on port: ", 3000);
 })

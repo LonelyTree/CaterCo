@@ -38,6 +38,9 @@
       float:right;
       
   }
+  .loginlist{
+    margin-right: 75%;
+  }
   
   /* Clear floats after the columns */
   .foodrow:after {
@@ -94,12 +97,12 @@
 
 
 .preview{
-    width:400px;
-    height: 400px;
+    width:60%;
+    height: 75%;
+    min-width: 200px;
+    min-height: 400px;
   }
-  .showServ{
-      width:400px;
-  }
+ 
 
   .bigname{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
