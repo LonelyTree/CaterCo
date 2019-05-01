@@ -158,10 +158,13 @@ const addToOrder = async(req, res) => {
                     order.items[j].quantity = +order.items[j].quantity + +foodObj.quantity
                     order.save()
                     break;
-                } else if (j === (order.items.length - 1) && foodObj.name != order.items[j].name) {
+                } else if ((j === (order.items.length - 1) || j === order.items.length) && foodObj.name != order.items[j].name) {
                     array.push(foodObj)
                     break;
                 }
+            }
+            if (order.items.length === 0) {
+                array.push(foodObj)
             }
         }
         order.items = order.items.concat(array)
@@ -192,7 +195,9 @@ const getCategory = async(req, res) => {
 // DELETE FOOD FROM ORDER
 const deleteFromOrder = async(req, res) => {
     try {
-        const order = await Order.updateOne({ id: req.params.orderId }, { $pull: { items: { id: req.params.itemId } } }, { new: true })
+        const order = await Order.findByIdAndUpdate(req.params.orderId, { $pull: { items: { _id: req.params.itemId } } }, { new: true })
+        console.log(order)
+        order.save()
         res.redirect(`/caterco/main/confirm/${req.params.orderId}`)
     } catch (err) {
         console.log(err)
