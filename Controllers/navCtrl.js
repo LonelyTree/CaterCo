@@ -1,4 +1,4 @@
-require('../db/db')
+require('../DB/DB')
 const Auth = require('./authCtrl')
 const bcrypt = require('bcrypt')
 const User = require('../models/user')
