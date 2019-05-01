@@ -24,11 +24,13 @@ router.get('/confirm/:orderId', user.viewIndvOrder)
 router.get('/editOrder/:orderId', user.editOrder)
 
 // GET UPDATES FOR CATEGORIES OF ORDER
-router.get('/editOrder/:category/:orderId', user.updateOrder)
-    // /editOrder/<%=categories[i]%>/<%=order._id%>?_method=PUT
+router.get('/editOrder/:category/:orderId', user.getCategory)
+
+// UPDATE NUMBERS ON START ORDER PAGE
+router.put('/editOrder/:orderId', user.changeInitial)
 
 // ADD UPDATES FOR CATEGORIES TO ORDER
-router.put('/editOrder/:orderId', user.addToOrder)
+router.put('/editOrder/:category/:orderId', user.addToOrder)
 
 ///<%=order._id%>?_method=PUT
 

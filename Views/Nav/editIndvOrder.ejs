@@ -11,7 +11,7 @@
 <div class="foodop">
 
 
-    <form action="/caterco/main/editOrder/<%=order._id%>?_method=PUT" method="POST">
+    <form action="/caterco/main/editOrder/<%=categories%>/<%=order._id%>?_method=PUT" method="POST">
         <%=categories%>
         <%for(let j = 0; j < foods.length; j++){
             if(foods[j].category===categories){%>

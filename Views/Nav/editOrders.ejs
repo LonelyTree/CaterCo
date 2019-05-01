@@ -22,30 +22,33 @@
 
 
     <%# UPDATES ORDER INFO %>
-    <form id="updateOrder" action="/caterco/main/editOrder/<%=order._id%>?_method=PUT" method="POST"></form>
 
         <input type="date" data-date-inline-picker="false" class="dateinput" name="thedate" value='<%=order.date%>'><br/>
             <%for(let i = 0; i < categories.length; i++){%>
-            
+
             <%=categories[i]%>
     <%#GOES TO SPECIFIC CATEGORY WITH ORDER ID INFO FOR UPDATING%>
+
 <form id="addMoreFromCategory" action="/caterco/main/editOrder/<%=categories[i]%>/<%=order._id%>" method="GET">
 
             <button type="Submit" class="btn btn-dark" >Add More <%=categories[i]%></button>
 </form>
+
             <%for(let j = 0; j < order.items.length; j++){%>
+
             <%if(order.items[j].category===categories[i]){%>
             <div class="foodrow">
                     <div class="foodcoli">
 
     <%# DELETE FROM ORDER'S ITEM ARRAY %>
-<form id="deleteFromOrder" action="/caterco/main/editOrder/<%=order.items[j].id%>?_method=DELETE" method="POST"></form>
+<form id="deleteFromOrder" action="/caterco/main/editOrder/<%=order._id%>/<%=order.items[j].id%>?_method=DELETE" method="POST"></form>
                         <img class="foodimg" // undo this comment when src are in the img property // src="<%=order.items[j].img%>"
                         >
                     </div>
                     <div class="foodcol">
-                    <p><%=order.items[j].name%> </p><button type="submit" class="btn btn-dark" form="deleteFromOrder">Delete</button>
-                    
+                    <p><%=order.items[j].name%>
+
+    </p><button type="submit" form="deleteFromOrder">Delete</button>
                     <%if(order.items[j].vegetarian){%>
                     <span class="veggie">VEGETARIAN!</span>
                 <%}%><br/>
@@ -54,8 +57,11 @@
 
                 <input type="hidden" name="id" value="<%=order.items[j].id%>">
 
-                <input type="number"  name="quantity" id="qty" value="<%=order.items[j].quantity%>">
-                
+    <form id="updateOrder" action="/caterco/main/editOrder/<%=order._id%>?_method=PUT" method="POST">
+                <input type="hidden"  name="id"  value="<%=order.items[j]._id%>"/>
+                <button type="submit">Update Order</button>
+                <input type="number"  name="quantity" value="<%=order.items[j].quantity%>">
+    </form>
                 </div>
             </div>
             <%}%>
@@ -63,6 +69,7 @@
         <hr>
     <%}%>
 
+<<<<<<< HEAD
 
 <button type="submit" class="btn btn-light">Update Order</button>
     
@@ -74,6 +81,8 @@
 
 
 
+=======
+>>>>>>> master
 <%}%>
 
     <%- include ../Partials/footer.ejs %>
