@@ -7,14 +7,17 @@
         <link href="/css/style.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-    <body style="margin: 0 10%">
-    <h1>Preview of Services</h1>
+
+    <body>
+    
+    <div class="previewpage">
+    <h1 id="preview">Preview of Services</h1>
     <div class= "showServ">
     <%# iframe of all services, without the add functionality %>
     <iframe class = "preview" src="./showServices" >
     </iframe>
     </div>
-    <div class="loginlist">Interesting in our services?<br/>
+    <div>Interested in our services?<br/>
     <form action="/caterco/register" method="POST">
   
     <div class ="form-group">
@@ -35,6 +38,6 @@
             <input type="text"  class="form-control" id="inputPayment4" name="payment" placeholder="Payment"><br/>
     </div>
     <button type="submit" class="btn btn-light" id="previewbtn">Create Account</button>
-</form></div>
+</form></div></div>
     </body>
 </html>

@@ -5,18 +5,20 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="/css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-    <body>
+    <body class="confirm">
      <%- include ../Partials/header.ejs %>
-    <h1>Confirm Your Order!</h1>
+    <h1 id="confirm">Confirm Your Order!</h1>
 
 <%for(let i=0; i<orders.length;i++){%>
-<li><a href="/caterco/main/confirm/<%=orders[i]._id%>"><%=orders[i].date%></a></li>
+<a class="list-group-item list-group-item-action" href="/caterco/main/confirm/<%=orders[i]._id%>"><%=orders[i].date%></a><br/>
 <%}%>
 
 <%# LINK TO ACCOUNT SETTINGS %>
-<a href="/caterco/edit">Your account</a>
-
+<form action="/caterco/edit" method="GET">
+    <button type="submit" class="btn btn-dark">Your Account</button>
+</form>
 <%# LINK TO THANKYOU PAGE %>
 <%- include ../Partials/footer.ejs %>
     </body>

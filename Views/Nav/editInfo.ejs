@@ -5,21 +5,22 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-    <body>
+    <body class="editinfo">
  <%- include ../Partials/header.ejs %>
         <%# UPDATE USER INFO %>
     <form action="/caterco/edit?_method=PUT" method="POST">
+        <div class="form-group">
+    Username: <input type="text" class="form-control" name="username" value="<%=user.username%>"><br/>
+        
+    Password: <input type="password" class="form-control" name="password"><br/>
 
-    Username: <input type="text" name="username" value="<%=user.username%>">
+    Payment: <input type="text" class="form-control" name="payment" value="<%=user.payment%>"><br/>
 
-    Password: <input type="password" name="password">
-
-    Payment: <input type="text" name="payment" value="<%=user.payment%>">
-
-    Email: <input type="text" name="email" value="<%=user.email%>">
-
-    <button type="submit">Update Info</button>
+    Email: <input type="text" class="form-control" name="email" value="<%=user.email%>"><br/>
+        </div>
+    <button type="submit" class="btn btn-light">Update Info</button>
     </form>
 
 
