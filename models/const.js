@@ -1,4 +1,4 @@
-require('../db/db')
+require('../DB/DB')
 const mongoose = require("mongoose");
 
 

@@ -1,4 +1,4 @@
-require("../db/db")
+require("../DB/DB")
 const Auth = require('../Controllers/authCtrl')
 const Food = require('../models/food')
 const Constant = require('../models/const')
