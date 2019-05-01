@@ -1,4 +1,4 @@
-require('../db/db')
+require('../DB/DB')
 const express = require("express")
 const router = express.Router()
 const Nav = require('../Controllers/navCtrl')
