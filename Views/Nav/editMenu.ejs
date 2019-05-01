@@ -4,21 +4,22 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-    <body>
+    <body class="editpage">
  <%- include ../Partials/header.ejs %>
     
 <h4>Edit Your Order</h4>
 <%# LINK TO ORDER SETTINGS %>
 <form action="/caterco/edit/orders" method="GET">
-    <button type="submit">Edit Orders</button>
+    <button type="submit" class="btn btn-outline-primary">Edit Orders</button>
 </form><br/>
 
 <h4>Edit Your Info</h4>
 <%# LINK TO INFO SETTINGS %>
 <form action="/caterco/edit/info" method="GET">
-<button type="submit">Edit Info</button>
+<button type="submit" class="btn btn-outline-primary">Edit Info</button>
 </form><br/>
 
 <%# RETURNS USER TO MAIN PAGE %>
@@ -26,14 +27,14 @@
     <%# IF USER IS ADMIN: %>
     <h4>Admin Menu</h4>
     <form action="/caterco/admin" method="GET" id="admin">
-        <button type="submit" >Return to Main Page</button>
+        <button type="submit" class="btn btn-outline-primary">Home</button>
     </form><br/>
 <% } %>
 
 <h4>Main Menu</h4>
 <%# IF USER IS NOT ADMIN: %>
 <form action="/caterco/main" method="GET">
-    <button type="submit">Return to Main Page</button>
+    <button type="submit" class="btn btn-outline-primary">Home</button>
 </form><br/>
 <%- include ../Partials/footer.ejs %>
     </body>

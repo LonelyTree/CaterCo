@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <%- include ../Partials/header.ejs %>
         <title></title>
         <meta charset="UTF-8">
+        <link href="/css/style.css" rel="stylesheet">
     </head>
-    <body>
+    <body class="neworder">
+    <%- include ../Partials/header.ejs %>
     <div class="foodop">
-
     <%# FOOD OPTIONS GO HERE %>
     <%# Nested for loops, top one checks category array, second one checks 
     for match, then renders if it matches. category names are at 
