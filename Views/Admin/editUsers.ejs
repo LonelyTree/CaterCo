@@ -19,7 +19,7 @@
 <li>
 <%if(users[i].admin){%><span>ADMIN  </span><%}%>
 <%=users[i].username%><br/>
-<a href="<%#EDIT PAGE%>">Edit</a>
+<a href="/caterco/edit">Edit</a>
 <form action="/caterco/admin/users/<%=users[i]._id%>?_method=DELETE" method="POST">
 <button type="submit" class="btn btn-dark">Delete User</button>
 </form>
