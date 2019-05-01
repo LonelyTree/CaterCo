@@ -1,4 +1,4 @@
-require('../db/db')
+require('../DB/DB')
 const express = require("express")
 const router = express.Router()
 const user = require('../Controllers/userCtrl')
@@ -32,11 +32,8 @@ router.put('/editOrder/:orderId', user.changeInitial)
 // ADD UPDATES FOR CATEGORIES TO ORDER
 router.put('/editOrder/:category/:orderId', user.addToOrder)
 
-///<%=order._id%>?_method=PUT
-
 // DELETE FOOD FROM ORDER
-router.delete('/editOrder/:orderId')
-    // /editOrder/<%=order.items[j].id%>?_method=DELETE
+router.delete('/editOrder/:orderId/:itemId', user.deleteFromOrder)
 
 
 

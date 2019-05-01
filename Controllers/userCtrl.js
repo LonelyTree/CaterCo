@@ -1,4 +1,4 @@
-require('../db/db')
+require('../DB/DB')
 const Food = require('../models/food')
 const User = require('../models/user')
 const Constant = require('../models/const')
@@ -83,8 +83,6 @@ const viewIndvOrder = async(req, res) => {
             categories: Constant.Categories,
             foods: FoodModel
         })
-
-
     } catch (err) {
         console.log(err)
     }
@@ -194,9 +192,10 @@ const getCategory = async(req, res) => {
 // DELETE FOOD FROM ORDER
 const deleteFromOrder = async(req, res) => {
     try {
-
+        const order = await Order.updateOne({ id: req.params.orderId }, { $pull: { items: { id: req.params.itemId } } }, { new: true })
+        res.redirect(`/caterco/main/confirm/${req.params.orderId}`)
     } catch (err) {
-        res.send(err)
+        console.log(err)
     }
 }
 
@@ -216,5 +215,6 @@ module.exports = {
     editOrder,
     getCategory,
     addToOrder,
-    changeInitial
+    changeInitial,
+    deleteFromOrder
 }

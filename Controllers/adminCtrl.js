@@ -1,4 +1,4 @@
-require('../db/db')
+require('../DB/DB')
 const Food = require("../models/food")
 const Users = require("../models/user")
 const Constant = require('../models/const')
