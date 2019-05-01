@@ -9,18 +9,18 @@
 
     </head>
     <body class="viewfood">
-         <%for(let x = 0;x<categories.length;x++){%>
-        <div class="category"><%=categories[x]%></div>
-        <%for(let y = 0;y<foods.length;y++){
-            if(foods[y].category===categories[x]){%>
+         <%for(let i = 0;i<categories.length;i++){%>
+        <div class="category"><%=categories[i]%></div>
+        <%for(let j = 0;j<foods.length;j++){
+            if(foods[j].category===categories[i]){%>
             <div class="foodrow">
-                <div class="foodcoli"><img class="foodimg"  src="<%=foods[y].img%>"></div>
+                <div class="foodcoli"><img class="foodimg"  src="<%=foods[j].img%>"></div>
                 <div class="foodcol">
-                <div class='foodname'><%=foods[y].name%></div>
-                <%if(foods[y].vegetarian){%>
+                <div class='foodname'><%=foods[j].name%></div>
+                <%if(foods[j].vegetarian){%>
                     <span class="veggie">VEGETARIAN!</span>
                     <%}%><br/>
-                <span class = "fooddesc"><%=foods[y].description%></span><br/>
+                <span class = "fooddesc"><%=foods[j].description%></span><br/>
                 </div>
             </div>
             <%}%>

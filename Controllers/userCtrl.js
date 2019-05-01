@@ -105,8 +105,25 @@ const editOrder = async(req, res) => {
     }
 }
 
+// MODIFY ORDER PAGE
+const changeInitial = async(req, res) => {
+    try {
+        const order = await Order.findById(req.params.orderId)
+        for (let i = 0; i < order.items.length; i++) {
+            if (order.items[i].id === req.body.id) {
+                order.items[i].quantity = req.body.quantity
+                order.save()
+            }
+        }
+        order.markModified('items')
+        order.save()
+        res.redirect(`/caterco/main/confirm/${req.params.orderId}`)
+    } catch (err) {
+        console.log(err)
+    }
+}
 
-// ADD FOOD TO ORDER
+// ADD SELECT FOOD TO ORDER
 const addToOrder = async(req, res) => {
     try {
         const order = await Order.findById(req.params.orderId)
@@ -142,23 +159,12 @@ const addToOrder = async(req, res) => {
                 if (order.items[j].name === foodObj.name) {
                     order.items[j].quantity = +order.items[j].quantity + +foodObj.quantity
                     order.save()
+                    break;
                 } else if (j === (order.items.length - 1) && foodObj.name != order.items[j].name) {
                     array.push(foodObj)
+                    break;
                 }
             }
-            // for (let j = 0; j < order.items.length; j++) {
-            //     console.log('======================================================')
-            //     console.log(order.items[j].name)
-            //     console.log(foodObj.name)
-            //     if (order.items[j].name === foodObj.name) {
-            //         order.items[j].quantity = +order.items[j].quantity + +foodObj.quantity
-            //         order.save()
-            //     } else if (order.items[j].name != foodObj.name && foodObj.quantity >= 1) {
-            //     } else {
-            //         continue;
-            //     }
-            // }
-
         }
         order.items = order.items.concat(array)
         order.markModified('items')
@@ -170,7 +176,7 @@ const addToOrder = async(req, res) => {
 }
 
 // GET FOOD FROM CATEGORY TO ADD TO ORDER
-const updateOrder = async(req, res) => {
+const getCategory = async(req, res) => {
     try {
         const order = await Order.findById(req.params.orderId)
         res.render("../Views/Nav/editIndvOrder.ejs", {
@@ -208,6 +214,7 @@ module.exports = {
     createorder,
     viewIndvOrder,
     editOrder,
-    updateOrder,
-    addToOrder
+    getCategory,
+    addToOrder,
+    changeInitial
 }
