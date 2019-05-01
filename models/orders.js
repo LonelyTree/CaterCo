@@ -12,7 +12,8 @@ const foodSchema = new mongoose.Schema({
 
 const ordersSchema = new mongoose.Schema({
     date: String,
-    items: [foodSchema]
+    items: [foodSchema],
+    confirmed: { type: Boolean, default: false }
 });
 
 

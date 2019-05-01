@@ -13,6 +13,9 @@
     <h1 id="confirm">Confirm Your Order!</h1>
 
 <%for(let i=0; i<orders.length;i++){%>
+<%if(orders[i].confirmed === true){%>
+<%continue;%>
+<%}%>
 <a class="list-group-item list-group-item-action" href="/caterco/main/confirm/<%=orders[i]._id%>"><%=orders[i].date%></a><br/>
 <%}%>
 

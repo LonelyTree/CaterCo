@@ -41,8 +41,7 @@
 
     <%# DELETE FROM ORDER'S ITEM ARRAY %>
 <form id="deleteFromOrder" action="/caterco/main/editOrder/<%=order._id%>/<%=order.items[j].id%>?_method=DELETE" method="POST"></form>
-                        <img class="foodimg" // undo this comment when src are in the img property // src="<%=order.items[j].img%>"
-                        >
+                        <img class="foodimg" src="<%=order.items[j].img%>">
                     </div>
                     <div class="foodcol">
                     <p><%=order.items[j].name%>

@@ -26,7 +26,7 @@
 <%# RETURNS USER TO MAIN PAGE %>
 <% if(foundUser.admin) { %> 
     <%# IF USER IS ADMIN: %>
-    <h4>Admin Menu</h4>
+    <h4>Admin</h4>
     <form action="/caterco/admin" method="GET" id="admin">
         <button type="submit" class="btn btn-dark">Home</button>
     </form><br/>
@@ -34,6 +34,7 @@
 
 
 <%# IF USER IS NOT ADMIN: %>
+<h4>User</h4>
 <form action="/caterco/main" method="GET">
     <button type="submit" class="btn btn-dark">Home</button>
 </form><br/>
