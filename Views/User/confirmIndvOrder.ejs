@@ -4,9 +4,10 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-    <body>
+    <body class="confirmindvorder">
      <%- include ../Partials/header.ejs %>
     ORDER INFO HERE
 <%# This document needs food schema, categories, and the order being edited passed to it %>
@@ -47,10 +48,10 @@
     <%}%>
 
 
-<button type="submit" form="editOrder">Edit Order</button>
+<button type="submit" class="btn btn-dark" form="editOrder">Edit Order</button>
 <br/>
 <br/>
-<button type="submit" form="confirmOrder">Confirm Order</button>
+<button type="submit" class="btn btn-dark" form="confirmOrder">Confirm Order</button>
     <%- include ../Partials/footer.ejs %>
     </body>
 </html>

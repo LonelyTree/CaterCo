@@ -93,7 +93,6 @@ body {
     font-size: 17px;
     border: #333
 }
-
 .preview{
     width:60%;
     height: 75%;
@@ -101,7 +100,20 @@ body {
     min-height: 400px;
     border-radius: 25px;
   }
- 
+  #preview{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .showServ{
+      width:600px;
+      margin-left: 20px;
+      
+  }
+  .previewpage{
+    background-image: url("https://images.unsplash.com/photo-1546599115-c0c0815c391b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 
 .showServ {
     width: 400px;
@@ -121,7 +133,8 @@ body {
 .loginbutton {
     margin-bottom: 5%;
     text-align: center;
-}
+    width: 100px;
+  }
 
 .arrivalbg {
     background-image: url("https://hips.hearstapps.com/del.h-cdn.co/assets/16/08/1456349426-delish-steak-salad.jpg");
@@ -210,16 +223,92 @@ body {
 
 .main {
     text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 5vw;
-}
-
-.mainimg {
+    color: whitesmoke;
+  }
+  .main-background{
     background-image: url("https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60");
+  }
+  #mainlinks{ 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+    font-size: 25px;
+  }
+  .editpage{
+    background-image: url("https://images.unsplash.com/photo-1498601566872-21706d8e6fdf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
     background-repeat: no-repeat;
     background-size: cover;
-}
-
+  }
+  .neworder{
+    background-image: url("https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .editorders{
+    background-image: url("https://images.unsplash.com/photo-1441986060468-324610e6e6a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #editorder{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+  }
+  #editheader{
+    color: black;
+    text-align: center;
+    font-size: 50px;
+  }
+  .confirm{
+    background-image: url("https://images.unsplash.com/photo-1448794363755-de84d6a770bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #confirm{
+    text-align: center;
+  }
+  #confirmorderlinks{
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: black;
+    font-size: 20px;
+  }
+  .editinfo{
+    background-image: url("https://images.unsplash.com/photo-1450152021501-598b36b17449?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .confirmindvorder{
+    background-image: url("https://images.unsplash.com/photo-1546599115-c0c0815c391b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .thankyou{
+    background-image: url("https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .adminmenu{
+    background-image: url("https://images.unsplash.com/photo-1551375048-9c5c503d0d2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .edituser{
+    background-image: url("https://images.unsplash.com/photo-1551615593-ef5fe247e8f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .editservices{
+    background-image: url("https://images.unsplash.com/photo-1546069901-5ec6a79120b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .newservice{
+    background-image: url("https://images.unsplash.com/photo-1492708398880-82c528f414c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 
 /* Change the color of links on hover */
 
@@ -252,9 +341,8 @@ body {
 body {
     display: flex;
     flex-direction: column;
-}
-
-.content {
+    }
+  .content {
     flex: 1 0 auto;
 }
 

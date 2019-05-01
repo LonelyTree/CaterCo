@@ -4,29 +4,31 @@
         <title></title>
         <meta charset="UTF-8">
         <link href="/css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-    <body>
+    <body class="newservice">
      <%- include ../Partials/adminheader.ejs %>
 
 <%# ADD FOOD HERE %>
 <form action="/caterco/admin/newservice" method="post">
-        
+        <div class="form-group">
 
         </select><br/>
         Name (required)<br/>
-        <input type="text" name="name"><br/><br/>
+        <input type="text" class="form-control" name="name"><br/><br/>
         IMG (required)<br/>
-        <input type="text" name="img"><br/><br/>
+        <input type="text" class="form-control" name="img"><br/><br/>
         Description<br/>
          <textarea name="description"></textarea><br/><br/>
-         Vegitarian<br/>
+         Vegetarian<br/>
          <input type="checkbox" name="vegetarian"><br/><br/>
          Category: 
         <select name="category">
           <% for (let i = 0; i < categories.length; i++) { %>
             <option value="<%=categories[i]%>"><%=categories[i]%></option>
           <%}%>
-        <input type="submit" value="New Food">
+          </div>
+        <input type="submit" class="btn btn-dark" value="New Food">
       </form>
 
 

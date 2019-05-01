@@ -5,13 +5,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="/css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-    <body>
+    <body class="editorders">
      <%- include ../Partials/header.ejs %>
-    
+    <h1 id="editheader">Edit Your Orders</h1>
     <%if(order.length > 0){%>
 <%for(let i=0; i< order.length ; i++){%>
-    <li><a href="/caterco/main/editOrder/<%=order[i]._id%>"><%=order[i].date%></a></li>
+    <a class="list-group-item list-group-item-action" href="/caterco/main/editOrder/<%=order[i]._id%>"><%=order[i].date%></a><br/>
 <%}%>
 
 <%} else{%>
@@ -28,7 +29,7 @@
 
 <form id="addMoreFromCategory" action="/caterco/main/editOrder/<%=categories[i]%>/<%=order._id%>" method="GET">
 
-            <button type="Submit" >Add More <%=categories[i]%></button>
+            <button type="Submit" class="btn btn-dark" >Add More <%=categories[i]%></button>
 </form>
 
             <%for(let j = 0; j < order.items.length; j++){%>
@@ -49,7 +50,7 @@
                     <%if(order.items[j].vegetarian){%>
                     <span class="veggie">VEGETARIAN!</span>
                 <%}%><br/>
-
+                
                 <%=order.items[j].description%><br/>
 
                 <input type="hidden" name="id" value="<%=order.items[j].id%>">
@@ -66,6 +67,20 @@
         <hr>
     <%}%>
 
+<<<<<<< HEAD
+
+<button type="submit" class="btn btn-light">Update Order</button>
+    
+</form>
+
+
+
+
+
+
+
+=======
+>>>>>>> master
 <%}%>
 
     <%- include ../Partials/footer.ejs %>

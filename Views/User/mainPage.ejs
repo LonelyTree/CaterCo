@@ -4,27 +4,29 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-    <body class="mainimg">
+    
+    <body class="main-background">
+    
      <%- include ../Partials/header.ejs %>
     <h1 class="main">WELCOME TO CATERCO!</h1>
 
-
-    <%# LINK TO ACCOUNT SETTINGS %>
-    <a href="/caterco/edit">Your Account</a>
-
-
-    <%# LINK TO NEW ORDER PAGE %>
-    <a href="/caterco/main/neworder">Order</a>
-
-
-    <%# LINK TO CONFIRM PAGE %>
-    <a href="/caterco/main/confirm">Confirm Your Order</a>
-
-
+        <form action="/caterco/edit" method="GET">
+            <%# LINK TO ACCOUNT SETTINGS %>
+            <button type="submit" id="mainlinks" class="btn btn-dark">Your Account</button>
+        </form><br/>
+        <form action="/caterco/main/neworder" method="GET">
+            <%# LINK TO NEW ORDER PAGE %>
+            <button type="submit" id="mainlinks" class="btn btn-dark">Order</button>
+        </form><br/>
+        <form action="/caterco/main/confirm" method="GET">
+            <%# LINK TO CONFIRM PAGE %>
+            <button type="submit" id="mainlinks" class="btn btn-dark">Confirm Your Order</button>
+        </form>
 
 <%# LOGOUT %>
 <%- include ../Partials/footer.ejs %>
+
     </body>
 </html>
