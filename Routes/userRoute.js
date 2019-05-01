@@ -5,7 +5,7 @@ const user = require('../Controllers/userCtrl')
 
 // MAIN PAGE
 
-router.get('/confirm/thankyou', user.thankyou)
+router.get('/confirm/:orderId/thankyou', user.thankyou)
 
 router.get('/confirm', user.confirm)
 

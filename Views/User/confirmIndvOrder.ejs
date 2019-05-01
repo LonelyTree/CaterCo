@@ -14,7 +14,7 @@
 
     <%# UPDATES ORDER INFO %>
 <form id="editOrder" action="/caterco/main/editOrder/<%=order._id%>" method="GET"></form>
-<form id="confirmOrder" action="/caterco/main/confirm/thankyou" method="GET"></form>
+<form id="confirmOrder" action="/caterco/main/confirm/<%=order._id%>/thankyou" method="GET"></form>
 
         <input type="date" data-date-inline-picker="false" class="dateinput" name="thedate" value='<%=order.date%>'><br/>
             <%for(let i = 0; i < categories.length; i++){%>

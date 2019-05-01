@@ -26,8 +26,14 @@ const confirm = async(req, res) => {
 }
 
 // GET THANK YOU PAGE
-const thankyou = (req, res) => {
-    res.render('../Views/User/thankYou.ejs')
+const thankyou = async(req, res) => {
+    try {
+        const confirmed = await Order.findByIdAndUpdate(req.params.orderId, { $set: { confirmed: true } }, { new: true })
+        console.log(confirmed)
+        res.render('../Views/User/thankYou.ejs')
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 // GET NEW ORDER PAGE
@@ -106,7 +112,7 @@ const editOrder = async(req, res) => {
 // MODIFY ORDER PAGE
 const changeInitial = async(req, res) => {
     try {
-        const order = await Order.findById(req.params.orderId)
+        const order = await Order.findByIdAndUpdate(req.params.orderId, { confirmed: false })
         for (let i = 0; i < order.items.length; i++) {
             if (order.items[i].id === req.body.id) {
                 order.items[i].quantity = req.body.quantity
@@ -124,7 +130,7 @@ const changeInitial = async(req, res) => {
 // ADD SELECT FOOD TO ORDER
 const addToOrder = async(req, res) => {
     try {
-        const order = await Order.findById(req.params.orderId)
+        const order = await Order.findByIdAndUpdate(req.params.orderId, { confirmed: false })
         let array = []
         let foodObj;
         for (let i = 0; i < req.body.id.length; i++) {
@@ -196,9 +202,11 @@ const getCategory = async(req, res) => {
 const deleteFromOrder = async(req, res) => {
     try {
         const order = await Order.findByIdAndUpdate(req.params.orderId, { $pull: { items: { _id: req.params.itemId } } }, { new: true })
-        console.log(order)
+        order.confirmed = false
         order.save()
+        console.log(order)
         res.redirect(`/caterco/main/confirm/${req.params.orderId}`)
+
     } catch (err) {
         console.log(err)
     }
