@@ -127,6 +127,10 @@ body {
     background-image: url("https://hips.hearstapps.com/del.h-cdn.co/assets/16/08/1456349426-delish-steak-salad.jpg");
     filter: blur(8px);
   -webkit-filter: blur(8px);
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
 
   /* Full height */
   height: 100%; 
@@ -252,6 +256,7 @@ body {
 body {
     display: flex;
     flex-direction: column;
+   
 }
 
 .content {
