@@ -135,6 +135,8 @@ body {
     background-image: url("https://images.unsplash.com/photo-1546599115-c0c0815c391b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
+
   }
   
 
@@ -168,6 +170,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 .arrival{
  background-color: rgb(0,0,0);
@@ -217,6 +220,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   
 }
 .loginpage{
@@ -251,6 +255,7 @@ body {
   }
   .main-background{
     background-image: url("https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60");
+    background-attachment: fixed;
   }
   #mainlinks{ 
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
@@ -260,11 +265,13 @@ body {
     background-image: url("https://images.unsplash.com/photo-1498601566872-21706d8e6fdf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
   }
   .neworder{
     background-image: url("https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
     background-repeat: no-repeat;
     background-size: cover;
+    
  
     
     background-attachment: fixed;;
@@ -273,6 +280,7 @@ body {
     background-image: url("https://images.unsplash.com/photo-1441986060468-324610e6e6a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
   }
   #editorder{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -289,6 +297,7 @@ body {
     background-image: url("https://images.unsplash.com/photo-1448794363755-de84d6a770bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
   }
   #confirm{
     text-align: center;
@@ -303,36 +312,43 @@ body {
     background-image: url("https://images.unsplash.com/photo-1450152021501-598b36b17449?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
   }
   .confirmindvorder{
     background-image: url("https://images.unsplash.com/photo-1546599115-c0c0815c391b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
   }
   .thankyou{
     background-image: url("https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
   }
   .adminmenu{
     background-image: url("https://images.unsplash.com/photo-1551375048-9c5c503d0d2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
   }
   .edituser{
     background-image: url("https://images.unsplash.com/photo-1551615593-ef5fe247e8f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
   }
   .editservices{
     background-image: url("https://images.unsplash.com/photo-1546069901-5ec6a79120b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
   }
   .newservice{
     background-image: url("https://images.unsplash.com/photo-1492708398880-82c528f414c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
   }
 
 /* Change the color of links on hover */
