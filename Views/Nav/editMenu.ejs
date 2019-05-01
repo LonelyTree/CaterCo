@@ -8,18 +8,18 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body class="editpage">
- <%- include ../Partials/header.ejs %>
+ <%- include ../Partials/header.ejs %><br/>
     
-<h4>Edit Your Order</h4>
+
 <%# LINK TO ORDER SETTINGS %>
 <form action="/caterco/edit/orders" method="GET">
-    <button type="submit" class="btn btn-outline-primary">Edit Orders</button>
+    <button type="submit" class="btn btn-dark">Edit Orders</button>
 </form><br/>
 
-<h4>Edit Your Info</h4>
+
 <%# LINK TO INFO SETTINGS %>
 <form action="/caterco/edit/info" method="GET">
-<button type="submit" class="btn btn-outline-primary">Edit Info</button>
+<button type="submit" class="btn btn-dark">Edit Info</button>
 </form><br/>
 
 <%# RETURNS USER TO MAIN PAGE %>
@@ -27,14 +27,14 @@
     <%# IF USER IS ADMIN: %>
     <h4>Admin Menu</h4>
     <form action="/caterco/admin" method="GET" id="admin">
-        <button type="submit" class="btn btn-outline-primary">Home</button>
+        <button type="submit" class="btn btn-dark">Home</button>
     </form><br/>
 <% } %>
 
-<h4>Main Menu</h4>
+
 <%# IF USER IS NOT ADMIN: %>
 <form action="/caterco/main" method="GET">
-    <button type="submit" class="btn btn-outline-primary">Home</button>
+    <button type="submit" class="btn btn-dark">Home</button>
 </form><br/>
 <%- include ../Partials/footer.ejs %>
     </body>

@@ -5,8 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-    <body>
+    <body class="editservices">
      <%- include ../Partials/adminheader.ejs %>
 
     <%for(let i = 0;i<categories.length;i++){%>
@@ -23,10 +24,10 @@
                 <%=foods[j].description%><br/>
 
                             <form action="/caterco/admin/deleteservice/<%=foods[j]._id%>?_method=DELETE" method="POST">
-                            <button type="submit">Delete Service</button>
-                            </form>
+                            <button type="submit" class="btn btn-dark">Delete Service</button>
+                            </form><br/>
                             <form action="/caterco/admin/updateservice/<%=foods[j]._id%>" method="GET">
-                            <button type="submit">Update Service</button>
+                            <button type="submit" class="btn btn-dark">Update Service</button>
                             </form>
                 </div>
             </div>
@@ -41,7 +42,7 @@
 
 <%# ADD NEW SERVICE %>
 <form action="/caterco/admin/newservice" method="GET">
-<button type="submit">Make New Service</button>
+<button type="submit" class="btn btn-dark">Make New Service</button>
 </form>
 
 

@@ -5,17 +5,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="/css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-    <body>
+    <body class="thankyou">
      <%- include ../Partials/header.ejs %>
-    <h1>Thank you for your order!</h1>
+    <h1>Thank you for your order!</h1><br/>
 
-    <p>This page comes after confirming your order.</p>
+    
 
 
 <%# LINK TO MAIN PAGE %>
-<a href="/caterco/main">Return to Main Page</a><br/>
-<a href="/caterco/edit">Your Account</a>
+<form action="/caterco/main" method="GET">
+    <button type="submit" class="btn btn-dark">Home</button>
+</form><br/>
+<form action="/caterco/edit" method="GET">
+<button type="submit" class="btn btn-dark">Your Account</button>
 
 
 

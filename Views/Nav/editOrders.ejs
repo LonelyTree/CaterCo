@@ -12,7 +12,7 @@
     <h1 id="editheader">Edit Your Orders</h1>
     <%if(order.length > 0){%>
 <%for(let i=0; i< order.length ; i++){%>
-    <a class="list-group-item list-group-item-action" href="/caterco/main/editOrder/<%=order[i]._id%>"><%=order[i].date%></a>
+    <a class="list-group-item list-group-item-action" href="/caterco/main/editOrder/<%=order[i]._id%>"><%=order[i].date%></a><br/>
 <%}%>
 
 
@@ -31,7 +31,7 @@
     <%#GOES TO SPECIFIC CATEGORY WITH ORDER ID INFO FOR UPDATING%>
 <form id="addMoreFromCategory" action="/caterco/main/editOrder/<%=categories[i]%>/<%=order._id%>" method="GET">
 
-            <button type="Submit" >Add More <%=categories[i]%></button>
+            <button type="Submit" class="btn btn-dark" >Add More <%=categories[i]%></button>
 </form>
             <%for(let j = 0; j < order.items.length; j++){%>
             <%if(order.items[j].category===categories[i]){%>
@@ -44,11 +44,12 @@
                         >
                     </div>
                     <div class="foodcol">
-                    <p><%=order.items[j].name%> </p><button type="submit" form="deleteFromOrder">Delete</button>
+                    <p><%=order.items[j].name%> </p><button type="submit" class="btn btn-dark" form="deleteFromOrder">Delete</button>
+                    
                     <%if(order.items[j].vegetarian){%>
                     <span class="veggie">VEGETARIAN!</span>
                 <%}%><br/>
-
+                
                 <%=order.items[j].description%><br/>
 
                 <input type="hidden" name="id" value="<%=order.items[j].id%>">
