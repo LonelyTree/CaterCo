@@ -8,6 +8,7 @@
     </head>
     <body>
      <%- include ../Partials/adminheader.ejs %>
+      <div class="bg">
     <form action="/caterco/admin/updateservice/<%=service._id%>?_method=PUT" method="POST">
 
         </select><br/>
@@ -34,6 +35,7 @@
         <%}%>
         <input type="submit" value="Update Food">
     </form>
+    </div>
 <%- include ../Partials/footer.ejs %>
     </body>
 </html>

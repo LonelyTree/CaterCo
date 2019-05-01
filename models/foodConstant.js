@@ -45,7 +45,24 @@ const Food = [{
         vegetarian: false,
         category: "Salads",
         id: 6
-    }
+    },
+    {
+        name: "Cheese Pizza",
+        img: "http://www.hammockpizza.co/image/cache/pizza/cheese-pizza-800x800.png",
+        description: "Delicious triangle with cheese",
+        vegetarian: true,
+        category: "Big Entrees",
+        id: 7
+    },
+    {
+        name: "Hot Dog",
+        img: "https://s.hswstatic.com/gif/hot-dog-km.jpg",
+        description: "Delicious sandwich?????",
+        vegetarian: false,
+        category: "Sandwiches",
+        id: 8
+    },
 ]
+
 
 module.exports = Food

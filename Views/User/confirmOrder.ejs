@@ -9,6 +9,7 @@
     </head>
     <body class="confirm">
      <%- include ../Partials/header.ejs %>
+     <div class="bg">
     <h1 id="confirm">Confirm Your Order!</h1>
 
 <%for(let i=0; i<orders.length;i++){%>
@@ -23,6 +24,7 @@
     <button type="submit" class="btn btn-dark">Your Account</button>
 </form>
 <%# LINK TO THANKYOU PAGE %>
+</div>
 <%- include ../Partials/footer.ejs %>
     </body>
 </html>
