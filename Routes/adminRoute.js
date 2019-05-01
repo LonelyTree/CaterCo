@@ -17,7 +17,7 @@ router.post('/newservice', Admin.newFood);
 router.get('/services', Admin.editservice)
 
 // DELETE SERVICES
-// router.delete('/deleteservice/:id', Admin.deleteService)
+router.delete('/deleteservice/:id', Admin.deleteService);
 
 // GET UPDATE SERVICE PAGE
 router.get('/updateservice/:id', Admin.updateServicePage)
@@ -31,7 +31,7 @@ router.get('/users', Admin.fillUsers)
 // GET ADMIN MENU
 router.get('/', Admin.adminMenu);
 
-router.delete("/:id", Admin.removeUsers);
+router.delete("/users/:id", Admin.removeUsers);
 
 
 

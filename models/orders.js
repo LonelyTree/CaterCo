@@ -1,12 +1,20 @@
 const mongoose = require('mongoose');
 const Food = require('./food')
-const ordersSchema = mongoose.Schema({
-    orders: [{
-        date: String,
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Food'
-    }]
+
+const foodSchema = new mongoose.Schema({
+    name: { type: String, require: true },
+    img: { type: String, require: true },
+    description: String,
+    vegetarian: Boolean,
+    category: { type: String, require: true },
+    quantity: Number
 });
 
-const Orders = mongoose.model('Order', ordersSchema);
-module.exports = { Orders };
+const ordersSchema = new mongoose.Schema({
+    date: String,
+    items: [foodSchema]
+});
+
+
+const Order = mongoose.model('Order', ordersSchema);
+module.exports = Order;

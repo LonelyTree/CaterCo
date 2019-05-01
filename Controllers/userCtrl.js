@@ -2,6 +2,8 @@ require('../db/db')
 const Food = require('../models/food')
 const User = require('../models/user')
 const Constant = require('../models/const')
+const Order = require('../models/orders')
+const FoodModel = require('../models/foodConstant')
 const mongoose = require("mongoose");
 
 // MAIN PAGE
@@ -9,111 +11,176 @@ const main = (req, res) => {
     res.render('../Views/User/mainPage.ejs')
 }
 
+// GET CONFIRM PAGE
 const confirm = async(req, res) => {
     try {
         const user = await User.findById(req.session.usersDbId)
-
-        // for (let i = 0; i < user.orders.length; i++) {
-        //     orders[i].date
-        // }
+            .populate('orders').exec()
+        console.log(user.orders)
         res.render('../Views/User/confirmOrder.ejs', {
             orders: user.orders
         })
     } catch (err) {
-        res.send(err)
+        console.log(err)
     }
 }
 
+// GET THANK YOU PAGE
 const thankyou = (req, res) => {
     res.render('../Views/User/thankYou.ejs')
 }
 
-
+// GET NEW ORDER PAGE
 const neworder = async(req, res) => {
-    let passfood = await Food.find({})
+    let passfood = FoodModel
     res.render('../Views/User/newOrder.ejs', {
         categories: Constant.Categories,
         foods: passfood,
     })
 }
 
+// POST NEW ORDER
 const createorder = async(req, res) => {
-    //console.log(req.body)
-    //create a temp new order object
 
-    try {
-        const food = await Food.create(req.body)
-        const order = await Order.create(req.body.date)
-        order.food = food
-    } catch (err) {
-        res.send(err)
+        try {
+            const orderObj = {
+                date: req.body.date,
+                items: []
+            }
+            for (let i = 0; i < req.body.id.length; i++) {
+                if (+req.body.quantity[i] <= 0) {
+                    continue;
+                }
+                const foodObj = {
+                    id: req.body.id[i],
+                    name: req.body.name[i],
+                    img: req.body.img[i],
+                    description: req.body.description[i],
+                    vegetarian: req.body.vegetarian[i],
+                    category: req.body.category[i],
+                    quantity: req.body.quantity[i]
+                }
+
+                // const food = await Food.create(foodObj)
+                orderObj.items.push(foodObj)
+            }
+            const order = await Order.create(orderObj)
+            order.save()
+            const thisUser = await User.findById(req.session.usersDbId)
+            thisUser.orders.push(order)
+            thisUser.save();
+            res.redirect('/caterco/main')
+        } catch (err) {
+            res.send(err)
+        }
     }
-    //add the date to the object
-    theOrder.date = req.body.thedate;
-    //add all non zero quantity to order
-    for (let i = 0; i < req.body.id.length; i++) {
-        let theItem = {}
-            //build food to push
-            // let theItem = {
-            //     quantity: Number,
-            //     fooditem: {
-            //         type: mongoose.Schema.Types.ObjectId,
-            //         ref: 'Food'
-            //     }
-            // };
-
-        let thefood = await Food.findById(req.body.id[i])
-        theItem.fooditem = thefood;
-        theItem.quantity = req.body.qty[i]
-        theOrder.items.push(theItem);
-
-
-    }
-    //console.log("THIS IS THE ORDER BEFORE IT GETS ADDED\n"+theOrder+"\n")
+    // VIEW CONFIRM ORDER PAGE
+const viewIndvOrder = async(req, res) => {
     try {
-        const thisUser = await User.findById(req.session.usersDbId)
-            //console.log(thisUser)
+        const order = await Order.findById(req.params.orderId)
+        res.render('../Views/User/confirmIndvOrder.ejs', {
+            order,
+            categories: Constant.Categories,
+            foods: FoodModel
+        })
 
-        thisUser.orders.push(theOrder)
-        thisUser.save();
-        //console.log(thisUser.orders);
 
-        res.redirect('/caterco/main')
     } catch (err) {
-        res.send(err)
+        console.log(err)
     }
 }
 
+// VIEW UPDATE ORDER PAGE
 
+const editOrder = async(req, res) => {
+    try {
+        const order = await Order.findById(req.params.orderId)
+        res.render('../Views/Nav/editOrders.ejs', {
+            order,
+            categories: Constant.Categories,
+            foods: FoodModel
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}
 
 
 // ADD FOOD TO ORDER
 const addToOrder = async(req, res) => {
     try {
+        const order = await Order.findById(req.params.orderId)
+        let array = []
+        let foodObj;
+        for (let i = 0; i < req.body.id.length; i++) {
+            if (+req.body.quantity[i] <= 0) {
+                continue;
+            }
+            if (req.body.id.length === 1) {
+                foodObj = {
+                    id: req.body.id,
+                    name: req.body.name,
+                    img: req.body.img,
+                    description: req.body.description,
+                    vegetarian: req.body.vegetarian,
+                    category: req.body.category,
+                    quantity: req.body.quantity
+                }
+            } else {
+                foodObj = {
+                    id: req.body.id[i],
+                    name: req.body.name[i],
+                    img: req.body.img[i],
+                    description: req.body.description[i],
+                    vegetarian: req.body.vegetarian[i],
+                    category: req.body.category[i],
+                    quantity: req.body.quantity[i]
+                }
+            }
 
-        const user = await User.find(req.sessions.username)
-        user.orders[user.orders.length + 1].date.push(req.body.date).items.push(food._id)
-        res.redirect('/caterco/main/neworder')
+            for (let j = 0; j < order.items.length; j++) {
+                if (order.items[j].name === foodObj.name) {
+                    order.items[j].quantity = +order.items[j].quantity + +foodObj.quantity
+                    order.save()
+                } else if (j === (order.items.length - 1) && foodObj.name != order.items[j].name) {
+                    array.push(foodObj)
+                }
+            }
+            // for (let j = 0; j < order.items.length; j++) {
+            //     console.log('======================================================')
+            //     console.log(order.items[j].name)
+            //     console.log(foodObj.name)
+            //     if (order.items[j].name === foodObj.name) {
+            //         order.items[j].quantity = +order.items[j].quantity + +foodObj.quantity
+            //         order.save()
+            //     } else if (order.items[j].name != foodObj.name && foodObj.quantity >= 1) {
+            //     } else {
+            //         continue;
+            //     }
+            // }
+
+        }
+        order.items = order.items.concat(array)
+        order.markModified('items')
+        order.save()
+        res.redirect(`/caterco/main/confirm/${req.params.orderId}`)
     } catch (err) {
-        res.send(err)
+        console.log(err)
     }
 }
 
-// UPDATE FOOD FROM ORDER
-
-const updateFood = async(req, res) => {
+// GET FOOD FROM CATEGORY TO ADD TO ORDER
+const updateOrder = async(req, res) => {
     try {
-        for (let i = 0; i < Food.orders.length; i++) {
+        const order = await Order.findById(req.params.orderId)
+        res.render("../Views/Nav/editIndvOrder.ejs", {
+            foods: FoodModel,
+            categories: req.params.category,
+            order
+        })
 
-
-
-
-            const Order = await Food.orders
-
-            const food = await Food.findByIdAndUpdate(req.params.id, req.body)
-        }
     } catch (err) {
-
+        res.send(err)
     }
 }
 
@@ -121,33 +188,26 @@ const updateFood = async(req, res) => {
 // DELETE FOOD FROM ORDER
 const deleteFromOrder = async(req, res) => {
     try {
-        const food = await User.orders[date].findByIdAndDelete(req.params.id)
+
     } catch (err) {
         res.send(err)
     }
 }
 
-const editIndvOrder = async(req, res) => {
-    try {
-        const user = await User.findById(req.session.usersDbId);
-        let theOrder;
-        for (let i = 0; i < user.orders.length; i++) {
-            if (user.order.date == req.params.date) {}
-        }
-        res.render('../Views/User/editIndvOrder.ejs', {
-            categories: Constant.Categories,
-            order: user.order[theOrder],
-            foods: Food
-        })
-    } catch (err) { res.send(err) }
-}
+
+
+
+
+
 
 module.exports = {
     main,
     confirm,
     thankyou,
     neworder,
-    addToOrder,
     createorder,
-    editIndvOrder
+    viewIndvOrder,
+    editOrder,
+    updateOrder,
+    addToOrder
 }

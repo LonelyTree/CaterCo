@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <%- include ../Partials/header.ejs %>
         <title></title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
     </head>
     <body>
-    <div class="foodop">
+<div class="foodop">
 
-    <%# FOOD OPTIONS GO HERE %>
-    <%# Nested for loops, top one checks category array, second one checks 
-    for match, then renders if it matches. category names are at 
-    the top of the outer loop, dividers at bottom %>
-    <form action="/caterco/main/neworder?_method=POST" method="post">
-    <input type="date" data-date-inline-picker="true" class="dateinput" name="date" ><br/>
-    <%for(let i = 0; i < categories.length; i++){%>
-        <%=categories[i]%>
+
+    <form action="/caterco/main/editOrder/<%=order._id%>?_method=PUT" method="POST">
+        <%=categories%>
         <%for(let j = 0; j < foods.length; j++){
-            if(foods[j].category===categories[i]){%>
+            if(foods[j].category===categories){%>
             <div class="foodrow">
                 <div class="foodcoli"><img class="foodimg" src="<%=foods[j].img%>"></div>
                 <div class="foodcol">
@@ -32,17 +28,17 @@
                 <input type="hidden" name="vegetarian" value="<%=foods[j].vegetarian %>"/>
                 <input type="hidden" name="category" value="<%=foods[j].category %>"/>
                 <input type="hidden" name="name" value="<%=foods[j].name %>"/>
-                <input type="number"  name="quantity" id="qty" value="0" min="0">
+                <input type="number"  name="quantity" id="qty" value="0" min="0"/>
                 </div>
             </div>
             <%}%>
         <%}%>
         <hr>
-    <%}%>
-    <button type="submit">Create</button>
+
+    <button type="submit">Add to Order</button>
    </form>
     
     </div>
-    <%- include ../Partials/footer.ejs %>
+
     </body>
 </html>

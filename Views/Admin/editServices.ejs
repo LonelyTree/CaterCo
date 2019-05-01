@@ -22,7 +22,7 @@
                     <%}%><br/>
                 <%=foods[j].description%><br/>
 
-                            <form action="/caterco/admin/deleteservice/<%=foods[j]._id%>?_method=delete" method="POST">
+                            <form action="/caterco/admin/deleteservice/<%=foods[j]._id%>?_method=DELETE" method="POST">
                             <button type="submit">Delete Service</button>
                             </form>
                             <form action="/caterco/admin/updateservice/<%=foods[j]._id%>" method="GET">

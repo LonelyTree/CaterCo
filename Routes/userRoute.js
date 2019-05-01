@@ -17,15 +17,24 @@ router.get('/neworder', user.neworder)
 
 router.post('/neworder', user.createorder)
 
-router.get('/editOrder/:date',user.editIndvOrder)
+// VIEW INDIVIDUAL ORDER
+router.get('/confirm/:orderId', user.viewIndvOrder)
 
-// UPDATE FOOD TO ORDER
-router.put('/')
+// EDIT ORDER
+router.get('/editOrder/:orderId', user.editOrder)
 
-// DELETE FOOD TO ORDER
-router.delete('/')
+// GET UPDATES FOR CATEGORIES OF ORDER
+router.get('/editOrder/:category/:orderId', user.updateOrder)
+    // /editOrder/<%=categories[i]%>/<%=order._id%>?_method=PUT
 
+// ADD UPDATES FOR CATEGORIES TO ORDER
+router.put('/editOrder/:orderId', user.addToOrder)
 
+///<%=order._id%>?_method=PUT
+
+// DELETE FOOD FROM ORDER
+router.delete('/editOrder/:orderId')
+    // /editOrder/<%=order.items[j].id%>?_method=DELETE
 
 
 

@@ -5,20 +5,23 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="/css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-    <body>
+    <body class="login">
     <h1>Login</h1>
-
-    <p>This is where the user or admin will login to
-    there accounts. After hitting the login button, the user
-    will be taken to the main page.</p>
 
 <%# GOES TO MAIN PAGE %>
 <div>
 <form action="/caterco/login" method="POST">
-    <input type="text" name="username" placeholder="Username"><br/>
-    <input type="password" name="password" placeholder="Password"><br/>
-    <button type="submit">Login</button><br/>
+    <div class="form-group">
+        <label for="inputUsername1"></label>
+        <input type="text" class="form-control" id="inputUsername1" aria-describedby="usernameHelp" name="username" placeholder="Username"><br/>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword1"></label>
+        <input type="password" class="form-control" id="inputPassword1" name="password" placeholder="Password"><br/>
+    </div>
+    <button type="submit" class="btn btn-light" id="loginbtn">Login</button>
 </form>
 
 <%# IGNORES THE SESSION MESSAGE IF NO MESSAGE EXIST %>
@@ -33,16 +36,29 @@
 
 <div>
 <h1>Register</h1>
-<p> This is where the user can create a new account </p>
+
 <form action="/caterco/register" method="POST">
-    Username: <input type="text" name="username"><br/>
-    Password: <input type="password" name="password"><br/>
-    Email: <input type="text" name="email"><br/>
-    Credit Card: <input type="text" name="payment"><br/>
+    <div class ="form-group">
+        
+            <label for="inputUsername4"></label>
+            <input type="text" class="form-control" id="inputUsername4" name="username" placeholder="Username"><br/>
+        
+       
+            <label for="inputPassword4"></label>
+            <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Password"><br/>
+        
+       
+            <label for="inputEmail4"></label>
+            <input type="text" class="form-control" id="inputEmail4" name="email" placeholder="Email Address"><br/>
+       
+        
+            <label for="inputPayment4"></label>
+            <input type="text"  class="form-control" id="inputPayment4" name="payment" placeholder="Payment"><br/>
+       
     Admin: <input type="checkbox" name="admin"><br/>
-    <button type="submit">Create Account</button>
+    </div>
+    <button type="submit" class="btn btn-light">Create Account</button>
 </form>
 </div>
-
     </body>
 </html>

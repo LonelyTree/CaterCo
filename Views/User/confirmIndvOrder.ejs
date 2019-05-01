@@ -4,46 +4,31 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="/css/style.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
      <%- include ../Partials/header.ejs %>
-    
-    <%if(order.length > 0){%>
-<%for(let i=0; i< order.length ; i++){%>
-    <li><a href="/caterco/main/editOrder/<%=order[i]._id%>"><%=order[i].date%></a></li>
-<%}%>
-
-
-
-<%} else{%>
-
-
+    ORDER INFO HERE
+<%# This document needs food schema, categories, and the order being edited passed to it %>
 
     <%# UPDATES ORDER INFO %>
-    <form id="updateOrder" action="/caterco/main/editOrder/<%=order._id%>?_method=PUT" method="POST"></form>
+<form id="editOrder" action="/caterco/main/editOrder/<%=order._id%>" method="GET"></form>
+<form id="confirmOrder" action="/caterco/main/confirm/thankyou" method="GET"></form>
 
         <input type="date" data-date-inline-picker="false" class="dateinput" name="thedate" value='<%=order.date%>'><br/>
             <%for(let i = 0; i < categories.length; i++){%>
             
             <%=categories[i]%>
-    <%#GOES TO SPECIFIC CATEGORY WITH ORDER ID INFO FOR UPDATING%>
-<form id="addMoreFromCategory" action="/caterco/main/editOrder/<%=categories[i]%>/<%=order._id%>" method="GET">
-
-            <button type="Submit" >Add More <%=categories[i]%></button>
-</form>
             <%for(let j = 0; j < order.items.length; j++){%>
             <%if(order.items[j].category===categories[i]){%>
             <div class="foodrow">
                     <div class="foodcoli">
 
-    <%# DELETE FROM ORDER'S ITEM ARRAY %>
-<form id="deleteFromOrder" action="/caterco/main/editOrder/<%=order.items[j].id%>?_method=DELETE" method="POST"></form>
                         <img class="foodimg" // undo this comment when src are in the img property // src="<%=order.items[j].img%>"
                         >
                     </div>
                     <div class="foodcol">
-                    <p><%=order.items[j].name%> </p><button type="submit" form="deleteFromOrder">Delete</button>
+                    <p><%=order.items[j].name%> </p>
                     <%if(order.items[j].vegetarian){%>
                     <span class="veggie">VEGETARIAN!</span>
                 <%}%><br/>
@@ -52,7 +37,7 @@
 
                 <input type="hidden" name="id" value="<%=order.items[j].id%>">
 
-                <input type="number"  name="quantity" id="qty" value="<%=order.items[j].quantity%>">
+                <p><%=order.items[j].quantity%></p>
                 
                 </div>
             </div>
@@ -62,18 +47,10 @@
     <%}%>
 
 
-<button type="submit" form="updateOrder">Update Order</button>
-    
-
-
-
-
-
-
-
-
-<%}%>
-
+<button type="submit" form="editOrder">Edit Order</button>
+<br/>
+<br/>
+<button type="submit" form="confirmOrder">Confirm Order</button>
     <%- include ../Partials/footer.ejs %>
     </body>
 </html>

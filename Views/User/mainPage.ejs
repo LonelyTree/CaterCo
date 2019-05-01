@@ -6,27 +6,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
     </head>
-    <body>
+    <body class="mainimg">
      <%- include ../Partials/header.ejs %>
-    <h1>This is the main page!</h1>
+    <h1 class="main">WELCOME TO CATERCO!</h1>
 
-    <p>This is the main page that comes after logging in. The user
-    can get to their account settings where they can edit their info and orders.</p>
 
-<p> User will be taken to the edit  menu, user account settings, 
-where they can edit their info and orders they placed. </p>
-<%# LINK TO ACCOUNT SETTINGS %>
-<a href="/caterco/edit">Your Account</a>
+    <%# LINK TO ACCOUNT SETTINGS %>
+    <a href="/caterco/edit">Your Account</a>
 
-This will take you to start a new food order.
-<%# LINK TO NEW ORDER PAGE %>
-<a href="/caterco/main/neworder">Order</a>
 
-<p> This will take you to the confirm order page. </p>
-<%# LINK TO CONFIRM PAGE %>
-<a href="/caterco/main/confirm">Confirm Your Order</a>
+    <%# LINK TO NEW ORDER PAGE %>
+    <a href="/caterco/main/neworder">Order</a>
 
-<p> Will take you back to arrival page. </p>
+
+    <%# LINK TO CONFIRM PAGE %>
+    <a href="/caterco/main/confirm">Confirm Your Order</a>
+
+
+
 <%# LOGOUT %>
 <%- include ../Partials/footer.ejs %>
     </body>
