@@ -2,6 +2,7 @@ require("../db/db")
 const Auth = require('../Controllers/authCtrl')
 const Food = require('../models/food')
 const Constant = require('../models/const')
+const FoodModel = require('../models/foodConstant')
 
 
 // ARRIVAL PAGE
@@ -16,13 +17,15 @@ const menu = (req, res) => {
 
 // SERVICES PAGE
 const services = (req, res) => {
-    res.render("../Views/preview.ejs")
+    res.render("../Views/preview.ejs", {
+        foods: FoodModel
+    })
 }
 
 const serviFrame = async(req, res) => {
     res.render("../Views/showServices.ejs", {
         categories: Constant.Categories,
-        foods: await Food.find({})
+        foods: FoodModel
     })
 }
 

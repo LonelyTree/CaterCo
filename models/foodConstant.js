@@ -1,5 +1,3 @@
-Categories: ["Salads", "Appetizers", "Sandwiches", "Big Entrees", "Drinks"]
-
 const Food = [{
         name: "Spaghetti",
         img: "nonsense",
