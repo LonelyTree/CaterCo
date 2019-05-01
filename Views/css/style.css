@@ -167,12 +167,13 @@ body {
   width: 80%;
   padding: 20px;
   text-align: center;
+  border-radius: 10px;
 }
 .arrival a{
-  color: #44f;
+  color: white;
   background-color:rgba(255, 255, 255, 0.4);
   border: 3px solid #fff;
-  padding:5px;
+  padding:10px;
   border-style:inset;
   border-radius: 25px;
 }
@@ -180,6 +181,7 @@ body {
 .arrival a:hover {
   background-color: rgba(0,0,0, 0.4); 
   color: white;
+  text-decoration: none;
 }
 
 .form-group {
