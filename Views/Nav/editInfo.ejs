@@ -9,6 +9,7 @@
     </head>
     <body class="editinfo">
  <%- include ../Partials/header.ejs %>
+ <div class="bg">
         <%# UPDATE USER INFO %>
     <form action="/caterco/edit?_method=PUT" method="POST">
         <div class="form-group">
@@ -23,7 +24,7 @@
     <button type="submit" class="btn btn-light">Update Info</button>
     </form>
 
-
+</div>
     <%- include ../Partials/footer.ejs %>
     </body>
 </html>

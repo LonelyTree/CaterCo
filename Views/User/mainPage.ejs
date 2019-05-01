@@ -9,8 +9,9 @@
     </head>
     
     <body class="main-background">
-    
      <%- include ../Partials/header.ejs %>
+    <div class="bg">
+    
     <h1 class="main">WELCOME TO CATERCO!</h1>
 
         <form action="/caterco/edit" method="GET">
@@ -27,7 +28,8 @@
         </form>
 
 <%# LOGOUT %>
-<%- include ../Partials/footer.ejs %>
 
+</div>
+<%- include ../Partials/footer.ejs %>
     </body>
 </html>

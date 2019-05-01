@@ -9,6 +9,7 @@
     </head>
     <body class="editorders">
      <%- include ../Partials/header.ejs %>
+     <div class="bg">
     <h1 id="editheader">Edit Your Orders</h1>
     <%if(order.length > 0){%>
 <%for(let i=0; i< order.length ; i++){%>
@@ -67,22 +68,8 @@
         <hr>
     <%}%>
 
-<<<<<<< HEAD
-
-<button type="submit" class="btn btn-light">Update Order</button>
-    
-</form>
-
-
-
-
-
-
-
-=======
->>>>>>> master
 <%}%>
-
+</div>
     <%- include ../Partials/footer.ejs %>
     </body>
 </html>
